@@ -9,7 +9,7 @@ git clone https://github.com/Thabang-n/amsAPI.git
 cd amsAPI
 2. Configure your database connection in the .env file
 "ConnectionStrings": {
-  "DefaultConnection": "Server=localhost;Database=amsDB;Trusted_Connection=True;TrustServerCertificate=True;"
+  "DefaultConnection": ""
 }
 3. Apply EF Core migrations
 dotnet ef database update --project Repository --startup-project API
