@@ -1,0 +1,58 @@
+[
+  {
+    "ContainingType": "amsAPI.Controllers.AssetsController",
+    "Method": "AddAssetAsync",
+    "RelativePath": "api/V1/assets",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Domain.Models.AssetModel.AddAssetRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "amsAPI.Controllers.LookUpController",
+    "Method": "GetAllBrandsAsync",
+    "RelativePath": "brands",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "amsAPI.Controllers.LookUpController",
+    "Method": "GetAllCategoriesAsync",
+    "RelativePath": "categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "amsAPI.Controllers.LookUpController",
+    "Method": "GetAllFeaturesAsync",
+    "RelativePath": "features",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "amsAPI.Controllers.LookUpController",
+    "Method": "GetAllLocationAsync",
+    "RelativePath": "locations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
