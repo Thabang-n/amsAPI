@@ -24,12 +24,12 @@ https://localhost:5001/swagger
 Available Endpoints
 The API includes the following endpoints:
 
-POST /asset – Create a new asset with dynamic attributes.
+POST api/v1/asset – Create a new asset with dynamic attributes.
 
-GET /locations – Retrieve all available asset locations.
+GET api/v1/locations – Retrieve all available asset locations.
 
-GET /brands – Retrieve all available asset brands.
+GET api/v1/brands – Retrieve all available asset brands.
 
-GET /categories – Retrieve all asset categories.
+GET api/v1/categories – Retrieve all asset categories.
 
-GET /features – Retrieve available asset feature types (e.g., RAM, screen size).
+GET api/v1/features – Retrieve available asset feature types (e.g., RAM, screen size).
