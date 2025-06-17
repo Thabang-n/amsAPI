@@ -25,7 +25,7 @@ https://localhost:5001/swagger - write it in mark down format for my read me fil
 Available Endpoints
 The API includes the following endpoints:
 
-POST /addAsset – Create a new asset with dynamic attributes.
+POST /asset – Create a new asset with dynamic attributes.
 
 GET /locations – Retrieve all available asset locations.
 
