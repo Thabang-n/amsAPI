@@ -16,8 +16,7 @@ dotnet ef database update --project Repository --startup-project API
 4. Run the API
 dotnet run --project API
 Open Swagger
-https://localhost:5001/swagger - write it in mark down format for my read me file
-
+https://localhost:5001/swagger
 
 
 #### This repository contains the full source code for the AMS (Asset Management System) API, developed with ASP.NET Core.
