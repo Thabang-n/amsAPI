@@ -9,9 +9,9 @@ namespace amsAPI.Controllers
     public class ReferenceDataController : ControllerBase
     {
         private readonly IReferenceDataService _referenceDataService;
-        public ReferenceDataController(IReferenceDataService lookUpService)
+        public ReferenceDataController(IReferenceDataService referenceDataService)
         {
-           this._referenceDataService = lookUpService; 
+           this._referenceDataService = referenceDataService; 
         }
 
         [HttpGet("/locations")]
