@@ -28,7 +28,7 @@ builder.Services.AddScoped<IAssetService, AssetService>();
 builder.Services.AddScoped<ITransactionService,TransactionService>();
 builder.Services.AddScoped<IValidationService, ValidationService>();
 builder.Services.AddScoped(typeof(IGenericRepo<>), typeof(GenericRepo<>));
-builder.Services.AddScoped<ILookUpService,LookUpService>();
+builder.Services.AddScoped<IReferenceDataService,ReferenceDataService>();
 
 
 
