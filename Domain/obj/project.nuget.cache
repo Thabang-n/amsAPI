@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DRfyHeKqa7c=",
+  "dgSpecHash": "bBKX7mX2KGU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Exaze TRSA28\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Exaze TRSA28\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

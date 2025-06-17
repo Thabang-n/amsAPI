@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Services\\Services.csproj": {}
+    "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Services\\Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Domain\\Domain.csproj": {
+    "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Exaze TRSA28\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -89,14 +89,14 @@
         }
       }
     },
-    "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Repositories\\Repositories.csproj": {
+    "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Repositories\\Repositories.csproj",
+        "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Repositories\\Repositories.csproj",
         "packagesPath": "C:\\Users\\Exaze TRSA28\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Repositories\\obj\\",
+        "outputPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -117,8 +117,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Domain\\Domain.csproj"
+              "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Domain\\Domain.csproj"
               }
             }
           }
@@ -174,14 +174,14 @@
         }
       }
     },
-    "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Services\\Services.csproj": {
+    "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Services\\Services.csproj",
+        "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Services\\Services.csproj",
         "packagesPath": "C:\\Users\\Exaze TRSA28\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Services\\obj\\",
+        "outputPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -202,11 +202,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Domain\\Domain.csproj"
+              "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Repositories\\Repositories.csproj": {
-                "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\amsAPI\\Repositories\\Repositories.csproj"
+              "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Repositories\\Repositories.csproj": {
+                "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Repositories\\Repositories.csproj"
               }
             }
           }
