@@ -2,9 +2,6 @@ using amsAPI.Repositories.AssetRepository;
 using amsAPI.Repositories.GenericRepository;
 using Domain.Data;
 using DotNetEnv;
-
-
-
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Services.Assets;
