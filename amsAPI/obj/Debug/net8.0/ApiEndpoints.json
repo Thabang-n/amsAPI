@@ -1,15 +1,5 @@
 [
   {
-    "ContainingType": "amsAPI.Controllers.ReferenceDataController",
-    "Method": "GetAllLocationAsync",
-    "RelativePath": "api/ReferenceData/api/v1/locations",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "amsAPI.Controllers.AssetsController",
     "Method": "AddAssetAsync",
     "RelativePath": "api/V1/assets",
@@ -28,7 +18,7 @@
   {
     "ContainingType": "amsAPI.Controllers.ReferenceDataController",
     "Method": "GetAllBrandsAsync",
-    "RelativePath": "brands",
+    "RelativePath": "api/v1/brands",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -38,7 +28,7 @@
   {
     "ContainingType": "amsAPI.Controllers.ReferenceDataController",
     "Method": "GetAllCategoriesAsync",
-    "RelativePath": "categories",
+    "RelativePath": "api/v1/categories",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -48,7 +38,17 @@
   {
     "ContainingType": "amsAPI.Controllers.ReferenceDataController",
     "Method": "GetAllFeaturesAsync",
-    "RelativePath": "features",
+    "RelativePath": "api/v1/features",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "amsAPI.Controllers.ReferenceDataController",
+    "Method": "GetAllLocationAsync",
+    "RelativePath": "api/v1/locations",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

@@ -36,7 +36,7 @@
         }
       }
     },
-    "/api/ReferenceData/api/v1/locations": {
+    "/api/v1/locations": {
       "get": {
         "tags": [
           "ReferenceData"
@@ -48,7 +48,7 @@
         }
       }
     },
-    "/brands": {
+    "/api/v1/brands": {
       "get": {
         "tags": [
           "ReferenceData"
@@ -60,7 +60,7 @@
         }
       }
     },
-    "/features": {
+    "/api/v1/features": {
       "get": {
         "tags": [
           "ReferenceData"
@@ -72,7 +72,7 @@
         }
       }
     },
-    "/categories": {
+    "/api/v1/categories": {
       "get": {
         "tags": [
           "ReferenceData"
