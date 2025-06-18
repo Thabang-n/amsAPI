@@ -51,8 +51,8 @@ namespace Services.Validations
                     if (attr.FeatureId == Guid.Empty)
                         errors.Add("Each AssetAttribute must have a valid FeatureId.");
 
-                    if (string.IsNullOrWhiteSpace(attr.Value))
-                        errors.Add("Each AssetAttribute must have a non-empty Value.");
+                    //if (string.IsNullOrWhiteSpace(attr.Value))
+                    //    errors.Add("Each AssetAttribute must have a non-empty Value.");
                 }
             }
 
