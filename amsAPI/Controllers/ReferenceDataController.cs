@@ -29,9 +29,9 @@ namespace amsAPI.Controllers
         }
 
         [HttpGet("features")]
-        public async Task<IActionResult> GetAllFeaturesAsync()
+        public async Task<IActionResult> GetAllFeaturesAsync(Guid id)
         {
-            var features = await _referenceDataService.GetFeaturesAsync();
+            var features = await _referenceDataService.GetFeaturesAsync(id);
             return Ok(features);
         }
 

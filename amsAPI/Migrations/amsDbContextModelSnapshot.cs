@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Domain.Migrations
+namespace amsAPI.Migrations
 {
     [DbContext(typeof(amsDbContext))]
     partial class amsDbContextModelSnapshot : ModelSnapshot
@@ -33,6 +33,11 @@ namespace Domain.Migrations
 
                     b.Property<Guid>("FeatureId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("AssetAttributeId");
 
@@ -68,6 +73,9 @@ namespace Domain.Migrations
                     b.Property<Guid>("LocationId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("LocationId1")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("SerialNumber")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -80,6 +88,8 @@ namespace Domain.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("LocationId");
+
+                    b.HasIndex("LocationId1");
 
                     b.ToTable("Assets");
                 });
@@ -234,6 +244,37 @@ namespace Domain.Migrations
                     b.ToTable("Features");
                 });
 
+            modelBuilder.Entity("Domain.Models.LocationModel.Location", b =>
+                {
+                    b.Property<Guid>("LocationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LocationAddress")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("LocationCity")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("LocationName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("LocationState")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("LocationId");
+
+                    b.ToTable("Locations");
+                });
+
             modelBuilder.Entity("Domain.Models.LocationModel.LocationDto", b =>
                 {
                     b.Property<Guid>("LocationId")
@@ -246,7 +287,7 @@ namespace Domain.Migrations
 
                     b.HasKey("LocationId");
 
-                    b.ToTable("Locations");
+                    b.ToTable("LocationDto");
                 });
 
             modelBuilder.Entity("Domain.Models.MaintenanceModel.Maintenance", b =>
@@ -315,27 +356,6 @@ namespace Domain.Migrations
                     b.ToTable("Requests");
                 });
 
-            modelBuilder.Entity("amsAPI.Models.FeatureValueModel.FeatureValue", b =>
-                {
-                    b.Property<Guid>("FeatureValueId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("FeatureId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Value")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("FeatureValueId");
-
-                    b.HasIndex("FeatureId");
-
-                    b.ToTable("FeatureValues");
-                });
-
             modelBuilder.Entity("Domain.Models.AssetAttributeModel.AssetAttribute", b =>
                 {
                     b.HasOne("Domain.Models.AssetModel.Asset", "Asset")
@@ -374,6 +394,10 @@ namespace Domain.Migrations
                         .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Domain.Models.LocationModel.Location", null)
+                        .WithMany("Assets")
+                        .HasForeignKey("LocationId1");
 
                     b.Navigation("Brand");
 
@@ -469,17 +493,6 @@ namespace Domain.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("amsAPI.Models.FeatureValueModel.FeatureValue", b =>
-                {
-                    b.HasOne("Domain.Models.FeatureModel.Feature", "Feature")
-                        .WithMany()
-                        .HasForeignKey("FeatureId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Feature");
-                });
-
             modelBuilder.Entity("Domain.Models.AssetModel.Asset", b =>
                 {
                     b.Navigation("AssetAttributes");
@@ -519,6 +532,11 @@ namespace Domain.Migrations
             modelBuilder.Entity("Domain.Models.FeatureModel.Feature", b =>
                 {
                     b.Navigation("AssetAttributes");
+                });
+
+            modelBuilder.Entity("Domain.Models.LocationModel.Location", b =>
+                {
+                    b.Navigation("Assets");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,10 +1,8 @@
+using amsAPI.Middleware;
 using amsAPI.Repositories.AssetRepository;
 using amsAPI.Repositories.GenericRepository;
 using Domain.Data;
 using DotNetEnv;
-
-
-
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Services.Assets;
@@ -43,7 +41,7 @@ if (app.Environment.IsDevelopment())
 }
 app.MapControllers();
 app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
-
+app.UseMiddleware<ErrorHandlerMiddleware>();
 app.UseHttpsRedirection();
 
 

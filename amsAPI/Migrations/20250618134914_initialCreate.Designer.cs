@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Domain.Migrations
+namespace amsAPI.Migrations
 {
     [DbContext(typeof(amsDbContext))]
-    [Migration("20250611134221_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250618134914_initialCreate")]
+    partial class initialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,16 +31,16 @@ namespace Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("AssetAttributeValue")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<Guid>("AssetId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("FeatureId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("AssetAttributeId");
 
@@ -76,6 +76,9 @@ namespace Domain.Migrations
                     b.Property<Guid>("LocationId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("LocationId1")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("SerialNumber")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -88,6 +91,8 @@ namespace Domain.Migrations
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("LocationId");
+
+                    b.HasIndex("LocationId1");
 
                     b.ToTable("Assets");
                 });
@@ -273,6 +278,21 @@ namespace Domain.Migrations
                     b.ToTable("Locations");
                 });
 
+            modelBuilder.Entity("Domain.Models.LocationModel.LocationDto", b =>
+                {
+                    b.Property<Guid>("LocationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LocationCity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LocationId");
+
+                    b.ToTable("LocationDto");
+                });
+
             modelBuilder.Entity("Domain.Models.MaintenanceModel.Maintenance", b =>
                 {
                     b.Property<Guid>("MaintenanceId")
@@ -372,11 +392,15 @@ namespace Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Models.LocationModel.Location", "Location")
-                        .WithMany("Assets")
+                    b.HasOne("Domain.Models.LocationModel.LocationDto", "Location")
+                        .WithMany()
                         .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Domain.Models.LocationModel.Location", null)
+                        .WithMany("Assets")
+                        .HasForeignKey("LocationId1");
 
                     b.Navigation("Brand");
 

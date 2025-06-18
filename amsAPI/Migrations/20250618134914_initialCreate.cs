@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Domain.Migrations
+namespace amsAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class initialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -47,6 +47,18 @@ namespace Domain.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Employees", x => x.EmployeeId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LocationDto",
+                columns: table => new
+                {
+                    LocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    LocationCity = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LocationDto", x => x.LocationId);
                 });
 
             migrationBuilder.CreateTable(
@@ -146,7 +158,8 @@ namespace Domain.Migrations
                     SerialNumber = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     IsAssigned = table.Column<bool>(type: "bit", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    LocationId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -164,11 +177,16 @@ namespace Domain.Migrations
                         principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Assets_Locations_LocationId",
+                        name: "FK_Assets_LocationDto_LocationId",
                         column: x => x.LocationId,
-                        principalTable: "Locations",
+                        principalTable: "LocationDto",
                         principalColumn: "LocationId",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Assets_Locations_LocationId1",
+                        column: x => x.LocationId1,
+                        principalTable: "Locations",
+                        principalColumn: "LocationId");
                 });
 
             migrationBuilder.CreateTable(
@@ -178,7 +196,7 @@ namespace Domain.Migrations
                     AssetAttributeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     AssetId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FeatureId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AssetAttributeValue = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    Value = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -285,6 +303,11 @@ namespace Domain.Migrations
                 column: "LocationId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Assets_LocationId1",
+                table: "Assets",
+                column: "LocationId1");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Assignments_AdminId",
                 table: "Assignments",
                 column: "AdminId");
@@ -362,6 +385,9 @@ namespace Domain.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "LocationDto");
 
             migrationBuilder.DropTable(
                 name: "Locations");
