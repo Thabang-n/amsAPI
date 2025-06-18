@@ -14,7 +14,7 @@ namespace Services.ReferenceData
     {
         Task<List<BrandDto>> GetBrandsAsync();
         Task<List<LocationDto>> GetLocationsAsync();
-        Task<List<FeatureDto>> GetFeaturesAsync();
+        Task<List<FeatureDto>> GetFeaturesAsync(Guid categoryId);
         Task<List<CategoryDto>> GetCategoryAsync();
 
 

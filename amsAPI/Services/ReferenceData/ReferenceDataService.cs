@@ -37,13 +37,14 @@ namespace Services.ReferenceData
             return categoryDtos;
         }
 
-        public async Task<List<FeatureDto>> GetFeaturesAsync()
+        public async Task<List<FeatureDto>> GetFeaturesAsync(Guid categoryId)
         {
             var features = await _context.Features
+            .Where(feature => feature.CategoryId == categoryId)
                 .Include(feature => feature.Category)
                 .ToListAsync();
 
-            var featureDtos = features.Select(feature => new FeatureDto
+            return features.Select(feature => new FeatureDto
             {
                 FeatureId = feature.FeatureId,
                 FeatureKey = feature.FeatureKey,
@@ -54,7 +55,6 @@ namespace Services.ReferenceData
                 }
             }).ToList();
 
-            return featureDtos;
         }
 
         async Task<List<BrandDto>> IReferenceDataService.GetBrandsAsync()
