@@ -55,7 +55,9 @@ namespace Services.Assets
                     {
                         AssetAttributeId = Guid.NewGuid(),
                         AssetId = assetId,
-                        FeatureId = Attr.FeatureId
+                        FeatureId = Attr.FeatureId,
+                        Value = Attr.Value
+                        
 
 
                     }).ToList() ?? new List<AssetAttribute>()

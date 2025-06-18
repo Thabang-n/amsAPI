@@ -13,6 +13,7 @@ namespace Domain.Models.AssetModel
         public Guid FeatureId { get; set; }
 
         [Required]
+        [MaxLength(255)]
         public string Value { get; set; }
     }
 }

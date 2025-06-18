@@ -1,4 +1,4 @@
-﻿using amsAPI.Models.FeatureValueModel;
+﻿
 using Domain.Models.AssetAttributeModel;
 using Domain.Models.AssetModel;
 using Domain.Models.AssignmentModel;
@@ -24,7 +24,7 @@ namespace Domain.Data
         public amsDbContext(DbContextOptions<amsDbContext> options):base(options)
         {
         }
-        public DbSet<LocationDto> Locations { get; set; }
+        public DbSet<Location> Locations { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Asset> Assets { get; set; }
@@ -36,13 +36,13 @@ namespace Domain.Data
         public DbSet<AuditTrail> AuditTrails { get; set; }
         public DbSet<Maintenance> Maintenances { get; set; }
 
-        public DbSet<FeatureValue> FeatureValues { get; set; }
+    
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
+           
             modelBuilder.Entity<Assignment>()
                 .HasOne(a => a.Admin)
                 .WithMany(e => e.AdminAssignments)
