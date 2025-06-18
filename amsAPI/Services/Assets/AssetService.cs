@@ -1,19 +1,11 @@
-﻿using Domain.Data;
+﻿using amsAPI.Repositories.AssetRepository;
 using Domain.Models.AssetAttributeModel;
 using Domain.Models.AssetModel;
-using Domain.Models.BrandModel;
-using Domain.Models.CategoryModel;
-using Domain.Models.FeatureModel;
-using Domain.Models.LocationModel;
-using Repositories.AssetRepository;
 using Services.DbTransactionManager;
 using Services.Validations;
-using System;
-using System.Collections.Generic;
+
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Services.Assets
 {
@@ -22,19 +14,21 @@ namespace Services.Assets
         
         private readonly IAssetRepo _assetReop;
         private readonly ITransactionService _transaction;
-        private readonly IValidationService _validationService;
 
 
 
-        public AssetService(IAssetRepo assetRepo, ITransactionService transaction,IValidationService validationService)
+
+        public AssetService(IAssetRepo assetRepo, ITransactionService transaction)
         {
           this._assetReop = assetRepo;
             this._transaction = transaction;
-            this._validationService = validationService;
+
+           
         }
         public async Task AddAssetAsync(AddAssetRequestDto requestDto)
         {
-            var validationErrors = await _validationService.ValidateAddAssetRequestDto(requestDto);
+            var validator = new ValidateAddAssetRequestDto(_assetReop);
+            var validationErrors = await validator.ValidateAsync(requestDto);
 
 
             if (validationErrors.Any())
@@ -61,8 +55,7 @@ namespace Services.Assets
                     {
                         AssetAttributeId = Guid.NewGuid(),
                         AssetId = assetId,
-                        FeatureId = Attr.FeatureId,
-                        AssetAttributeValue =Attr.Value,
+                        FeatureId = Attr.FeatureId
 
 
                     }).ToList() ?? new List<AssetAttribute>()

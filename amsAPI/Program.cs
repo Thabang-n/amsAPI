@@ -1,3 +1,5 @@
+using amsAPI.Repositories.AssetRepository;
+using amsAPI.Repositories.GenericRepository;
 using Domain.Data;
 using DotNetEnv;
 
@@ -5,8 +7,6 @@ using DotNetEnv;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
-using Repositories.AssetRepository;
-using Repositories.GenericRepository;
 using Services.Assets;
 using Services.DbTransactionManager;
 using Services.ReferenceData;
@@ -26,9 +26,8 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IAssetRepo, AssetRepo>();
 builder.Services.AddScoped<IAssetService, AssetService>();
 builder.Services.AddScoped<ITransactionService,TransactionService>();
-builder.Services.AddScoped<IValidationService, ValidationService>();
 builder.Services.AddScoped(typeof(IGenericRepo<>), typeof(GenericRepo<>));
-builder.Services.AddScoped<ILookUpService,LookUpService>();
+builder.Services.AddScoped<IReferenceDataService,ReferenceDataService>();
 
 
 

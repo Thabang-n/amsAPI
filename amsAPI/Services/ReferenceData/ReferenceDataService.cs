@@ -1,15 +1,11 @@
-﻿using Domain.Data;
+﻿using amsAPI.Repositories.GenericRepository;
+using Domain.Data;
 using Domain.Models.BrandModel;
 using Domain.Models.CategoryModel;
 using Domain.Models.FeatureModel;
 using Domain.Models.LocationModel;
 using Microsoft.EntityFrameworkCore;
-using Repositories.GenericRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Services.ReferenceData
 {

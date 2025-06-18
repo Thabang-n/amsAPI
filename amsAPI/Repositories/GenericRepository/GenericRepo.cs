@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repositories.GenericRepository
+namespace amsAPI.Repositories.GenericRepository
 {
     public class GenericRepo<TEntity> : IGenericRepo<TEntity> where TEntity : class
     {

@@ -11,9 +11,6 @@ namespace Domain.Models.AssetAttributeModel
     {
         [Required]
         public Guid FeatureId { get; set; }
-
-        [Required]
-        public string Value { get; set; }
     }
 }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repositories.GenericRepository
+namespace amsAPI.Repositories.GenericRepository
 {
     public interface IGenericRepo<TEntity> where TEntity : class
     {

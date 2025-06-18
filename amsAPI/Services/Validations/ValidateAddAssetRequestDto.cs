@@ -1,22 +1,18 @@
-﻿using Domain.Models.AssetModel;
-using Microsoft.IdentityModel.Tokens;
-using Repositories.AssetRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using amsAPI.Repositories.AssetRepository;
+using Domain.Models.AssetModel;
+
 
 namespace Services.Validations
 {
-    public class ValidationService : IValidationService
+    public class ValidateAddAssetRequestDto
     {
         private readonly IAssetRepo _assetRepo;
-        public ValidationService(IAssetRepo assetRepo)
+        
+        public ValidateAddAssetRequestDto(IAssetRepo assetRepo)
         {
           this._assetRepo = assetRepo;  
         }
-        public async Task<List<string>> ValidateAddAssetRequestDto(AddAssetRequestDto dto)
+        public async Task<List<string>> ValidateAsync(AddAssetRequestDto dto)
         {
             if (dto == null)
                 throw new ArgumentNullException(nameof(dto), "Request cannot be null");

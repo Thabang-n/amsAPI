@@ -14,7 +14,7 @@ namespace amsAPI.Controllers
            this._referenceDataService = referenceDataService; 
         }
 
-        [HttpGet("/locations")]
+        [HttpGet("api/v1/locations")]
         public async Task<IActionResult> GetAllLocationAsync()
         {
                var locations =  await _referenceDataService.GetLocationsAsync();

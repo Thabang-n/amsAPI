@@ -1,14 +1,14 @@
-﻿using Domain.Data;
+﻿using amsAPI.Repositories.GenericRepository;
+using Domain.Data;
 using Domain.Models.AssetModel;
 using Microsoft.EntityFrameworkCore;
-using Repositories.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repositories.AssetRepository
+namespace amsAPI.Repositories.AssetRepository
 {
     public class AssetRepo : GenericRepo<Asset>,IAssetRepo
     {
@@ -16,7 +16,7 @@ namespace Repositories.AssetRepository
 
         public AssetRepo(amsDbContext context):base(context)
         {
-          this._context = context;  
+            _context = context;  
         }
 
         public Task<bool> serialNumberExitsAsync(string serialNumber)

@@ -1,4 +1,5 @@
-﻿using Domain.Models.AssetAttributeModel;
+﻿using amsAPI.Models.FeatureValueModel;
+using Domain.Models.AssetAttributeModel;
 using Domain.Models.AssetModel;
 using Domain.Models.AssignmentModel;
 using Domain.Models.AuditTrailModel;
@@ -34,6 +35,9 @@ namespace Domain.Data
         public DbSet<RequestMdl> Requests { get; set; }
         public DbSet<AuditTrail> AuditTrails { get; set; }
         public DbSet<Maintenance> Maintenances { get; set; }
+
+        public DbSet<FeatureValue> FeatureValues { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

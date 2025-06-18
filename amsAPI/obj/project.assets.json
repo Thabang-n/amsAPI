@@ -2941,52 +2941,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
-      },
-      "Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "DotNetEnv": "3.1.1",
-          "Microsoft.EntityFrameworkCore": "9.0.6",
-          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.6"
-        },
-        "compile": {
-          "bin/placeholder/Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Domain.dll": {}
-        }
-      },
-      "Repositories/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "Domain": "1.0.0",
-          "DotNetEnv": "3.1.1",
-          "Microsoft.EntityFrameworkCore": "9.0.6"
-        },
-        "compile": {
-          "bin/placeholder/Repositories.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Repositories.dll": {}
-        }
-      },
-      "Services/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "Domain": "1.0.0",
-          "DotNetEnv": "3.1.1",
-          "Microsoft.EntityFrameworkCore": "9.0.6",
-          "Repositories": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Services.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Services.dll": {}
-        }
       }
     }
   },
@@ -9500,33 +9454,16 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
-    },
-    "Domain/1.0.0": {
-      "type": "project",
-      "path": "../Domain/Domain.csproj",
-      "msbuildProject": "../Domain/Domain.csproj"
-    },
-    "Repositories/1.0.0": {
-      "type": "project",
-      "path": "../Repositories/Repositories.csproj",
-      "msbuildProject": "../Repositories/Repositories.csproj"
-    },
-    "Services/1.0.0": {
-      "type": "project",
-      "path": "../Services/Services.csproj",
-      "msbuildProject": "../Services/Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Domain >= 1.0.0",
       "DotNetEnv >= 3.1.1",
       "Microsoft.AspNetCore.OpenApi >= 8.0.15",
       "Microsoft.EntityFrameworkCore >= 9.0.6",
       "Microsoft.EntityFrameworkCore.Design >= 9.0.6",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.6",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.6",
-      "Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
@@ -9537,11 +9474,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\amsAPI\\amsAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\Desktop\\ams\\amsAPI\\amsAPI.csproj",
       "projectName": "amsAPI",
-      "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\amsAPI\\amsAPI.csproj",
+      "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\Desktop\\ams\\amsAPI\\amsAPI.csproj",
       "packagesPath": "C:\\Users\\Exaze TRSA28\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\amsAPI\\obj\\",
+      "outputPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\Desktop\\ams\\amsAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -9561,14 +9498,7 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {
-            "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Domain\\Domain.csproj"
-            },
-            "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Services\\Services.csproj": {
-              "projectPath": "C:\\Users\\Exaze TRSA28\\OneDrive - EXAZEIT\\MiddleWare Feature\\Services\\Services.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

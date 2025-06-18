@@ -28,11 +28,6 @@ namespace Domain.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("AssetAttributeValue")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<Guid>("AssetId")
                         .HasColumnType("uniqueidentifier");
 
@@ -239,31 +234,15 @@ namespace Domain.Migrations
                     b.ToTable("Features");
                 });
 
-            modelBuilder.Entity("Domain.Models.LocationModel.Location", b =>
+            modelBuilder.Entity("Domain.Models.LocationModel.LocationDto", b =>
                 {
                     b.Property<Guid>("LocationId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("LocationAddress")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
                     b.Property<string>("LocationCity")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("LocationName")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("LocationState")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("LocationId");
 
@@ -336,6 +315,27 @@ namespace Domain.Migrations
                     b.ToTable("Requests");
                 });
 
+            modelBuilder.Entity("amsAPI.Models.FeatureValueModel.FeatureValue", b =>
+                {
+                    b.Property<Guid>("FeatureValueId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("FeatureId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("FeatureValueId");
+
+                    b.HasIndex("FeatureId");
+
+                    b.ToTable("FeatureValues");
+                });
+
             modelBuilder.Entity("Domain.Models.AssetAttributeModel.AssetAttribute", b =>
                 {
                     b.HasOne("Domain.Models.AssetModel.Asset", "Asset")
@@ -369,8 +369,8 @@ namespace Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Models.LocationModel.Location", "Location")
-                        .WithMany("Assets")
+                    b.HasOne("Domain.Models.LocationModel.LocationDto", "Location")
+                        .WithMany()
                         .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -469,6 +469,17 @@ namespace Domain.Migrations
                     b.Navigation("Employee");
                 });
 
+            modelBuilder.Entity("amsAPI.Models.FeatureValueModel.FeatureValue", b =>
+                {
+                    b.HasOne("Domain.Models.FeatureModel.Feature", "Feature")
+                        .WithMany()
+                        .HasForeignKey("FeatureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Feature");
+                });
+
             modelBuilder.Entity("Domain.Models.AssetModel.Asset", b =>
                 {
                     b.Navigation("AssetAttributes");
@@ -508,11 +519,6 @@ namespace Domain.Migrations
             modelBuilder.Entity("Domain.Models.FeatureModel.Feature", b =>
                 {
                     b.Navigation("AssetAttributes");
-                });
-
-            modelBuilder.Entity("Domain.Models.LocationModel.Location", b =>
-                {
-                    b.Navigation("Assets");
                 });
 #pragma warning restore 612, 618
         }

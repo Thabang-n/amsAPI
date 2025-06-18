@@ -24,8 +24,5 @@ namespace Domain.Models.AssetAttributeModel
         public Guid FeatureId { get; set; }
         [ForeignKey("FeatureId")]
         public Feature Feature { get; set; }
-
-        [MaxLength(100)]
-        public string AssetAttributeValue { get; set; }
     }
 }

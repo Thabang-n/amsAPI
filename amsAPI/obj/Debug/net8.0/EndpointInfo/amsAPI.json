@@ -36,10 +36,10 @@
         }
       }
     },
-    "/locations": {
+    "/api/ReferenceData/api/v1/locations": {
       "get": {
         "tags": [
-          "LookUp"
+          "ReferenceData"
         ],
         "responses": {
           "200": {
@@ -51,7 +51,7 @@
     "/brands": {
       "get": {
         "tags": [
-          "LookUp"
+          "ReferenceData"
         ],
         "responses": {
           "200": {
@@ -63,7 +63,7 @@
     "/features": {
       "get": {
         "tags": [
-          "LookUp"
+          "ReferenceData"
         ],
         "responses": {
           "200": {
@@ -75,7 +75,7 @@
     "/categories": {
       "get": {
         "tags": [
-          "LookUp"
+          "ReferenceData"
         ],
         "responses": {
           "200": {
