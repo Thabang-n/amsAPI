@@ -28,12 +28,13 @@ namespace amsAPI.Controllers
             return Ok(brands);
         }
 
-        [HttpGet("features")]
-        public async Task<IActionResult> GetAllFeaturesAsync(Guid id)
+        [HttpGet("features/{id}")]
+        public async Task<IActionResult> GetAllFeaturesAsync([FromRoute] Guid id)
         {
             var features = await _referenceDataService.GetFeaturesAsync(id);
             return Ok(features);
         }
+
 
         [HttpGet("categories")]
         public async Task<IActionResult> GetAllCategoriesAsync()
