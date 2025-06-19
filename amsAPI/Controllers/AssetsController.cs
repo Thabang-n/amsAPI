@@ -5,7 +5,7 @@ using Services.Assets;
 
 namespace amsAPI.Controllers
 {
-    [Route("api/V1/")]
+    [Route("api/v1/")]
     [ApiController]
     public class AssetsController : ControllerBase
     {
