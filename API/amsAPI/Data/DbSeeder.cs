@@ -64,7 +64,7 @@ namespace amsAPI.Data
                 new Location
                 {
                     LocationId = LocationHeadOfficeId,
-                    LocationName = "Head Office",
+                    LocationName = "South africa",
                     LocationCity = "Sandton",
                     LocationState = "Gauteng",
                     LocationAddress = "123 Sandton Street"
@@ -72,7 +72,7 @@ namespace amsAPI.Data
                 new Location
                 {
                     LocationId = LocationIndiaHQId,
-                    LocationName = "India Headquarters",
+                    LocationName = "India",
                     LocationCity = "Bhilai",
                     LocationState = "Chhattisgarh",
                     LocationAddress = "456 Bhilai Road"
@@ -80,7 +80,7 @@ namespace amsAPI.Data
                 new Location
                 {
                     LocationId = LocationHyderabadId,
-                    LocationName = "Delivery Centre - Hyderabad",
+                    LocationName = "India",
                     LocationCity = "Hyderabad",
                     LocationState = "Telangana",
                     LocationAddress = "789 Hyderabad Lane"
@@ -88,7 +88,7 @@ namespace amsAPI.Data
                 new Location
                 {
                     LocationId = LocationPuneId,
-                    LocationName = "Delivery Centre - Pune",
+                    LocationName = "India",
                     LocationCity = "Pune",
                     LocationState = "Maharashtra",
                     LocationAddress = "101 Pune Blvd"
@@ -96,9 +96,9 @@ namespace amsAPI.Data
                 new Location
                 {
                     LocationId = LocationBhopalId,
-                    LocationName = "Delivery Centre - Bhopal",
+                    LocationName = "Uk",
                     LocationCity = "Bhopal",
-                    LocationState = "Madhya Pradesh",
+                    LocationState = "London",
                     LocationAddress = "202 Bhopal Street"
                 }
             );
