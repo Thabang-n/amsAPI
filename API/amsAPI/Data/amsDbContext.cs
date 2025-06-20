@@ -1,4 +1,5 @@
 ﻿
+using amsAPI.Data;
 using Domain.Models.AssetAttributeModel;
 using Domain.Models.AssetModel;
 using Domain.Models.AssignmentModel;
@@ -65,7 +66,10 @@ namespace Domain.Data
                 .HasOne(aa => aa.Feature)
                 .WithMany(f => f.AssetAttributes)
                 .HasForeignKey(aa => aa.FeatureId)
-                .OnDelete(DeleteBehavior.Restrict);  
+                .OnDelete(DeleteBehavior.Restrict);
+           
+  
+            DbSeeder.Seed(modelBuilder);
         }
 
 
