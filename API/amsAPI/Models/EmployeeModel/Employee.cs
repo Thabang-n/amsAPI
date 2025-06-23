@@ -1,4 +1,4 @@
-﻿using Domain.Models.AssignmentModel;
+﻿using amsAPI.Models.AssignmentModel;
 using Domain.Models.AuditTrailModel;
 using Domain.Models.MaintenanceModel;
 using Domain.Models.RequestModel;

@@ -1,7 +1,7 @@
 ﻿using amsAPI.Repositories.AssetRepository;
 using Domain.Models.AssetAttributeModel;
 using Domain.Models.AssetModel;
-using Domain.Models.AssignmentModel;
+
 using Services.DbTransactionManager;
 using Services.Validations;
 
@@ -80,11 +80,7 @@ namespace Services.Assets
                     throw (ex);
                 }
             }
-<<<<<<< Updated upstream
-=======
 
-
->>>>>>> Stashed changes
         }
     }
 }

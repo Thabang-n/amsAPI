@@ -10,11 +10,6 @@ namespace Services.Assets
     public interface IAssetService
     {
         Task AddAssetAsync(AddAssetRequestDto requestDto);
-<<<<<<< Updated upstream
-=======
 
-     
-      
->>>>>>> Stashed changes
     }
 }

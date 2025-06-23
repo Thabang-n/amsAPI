@@ -1,5 +1,4 @@
-﻿using Domain.Models.AssetAttributeModel;
-using Domain.Models.AssignmentModel;
+﻿
 using Domain.Models.BrandModel;
 using Domain.Models.CategoryModel;
 using Domain.Models.LocationModel;

@@ -1,8 +1,8 @@
 ﻿
 using amsAPI.Data;
+using amsAPI.Models.AssignmentModel;
 using Domain.Models.AssetAttributeModel;
 using Domain.Models.AssetModel;
-using Domain.Models.AssignmentModel;
 using Domain.Models.AuditTrailModel;
 using Domain.Models.BrandModel;
 using Domain.Models.CategoryModel;
@@ -43,20 +43,21 @@ namespace Domain.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-           
+
             modelBuilder.Entity<AssignmentMdl>()
-                .HasOne(a => a.Admin)
-                .WithMany(e => e.AdminAssignments)
-                .HasForeignKey(a => a.AdminId)
-                .OnDelete(DeleteBehavior.Restrict);
+      .HasOne(a => a.Admin)
+      .WithMany(e => e.AdminAssignments) 
+      .HasForeignKey(a => a.AdminId)
+      .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<AssignmentMdl>()
                 .HasOne(a => a.Employee)
-                .WithMany(e => e.EmployeeAssignments)
+                .WithMany(e => e.EmployeeAssignments) 
                 .HasForeignKey(a => a.EmployeeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-                    modelBuilder.Entity<AssetAttribute>()
+
+            modelBuilder.Entity<AssetAttribute>()
                 .HasOne(aa => aa.Asset)
                 .WithMany(a => a.AssetAttributes)
                 .HasForeignKey(aa => aa.AssetId)
