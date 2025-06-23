@@ -42,7 +42,7 @@ namespace Domain.Models.AssetModel
         public bool IsDeleted { get; set; }
 
         public ICollection<AssetAttribute> AssetAttributes { get; set; }
-        public ICollection<Assignment> Assignments { get; set; }
+        public ICollection<AssignmentMdl> Assignments { get; set; }
         public ICollection<Maintenance> Maintenances { get; set; }
     }
 }

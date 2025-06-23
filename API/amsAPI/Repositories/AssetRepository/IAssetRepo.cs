@@ -11,5 +11,7 @@ namespace amsAPI.Repositories.AssetRepository
     public interface IAssetRepo:IGenericRepo<Asset>
     {
         Task<bool> serialNumberExitsAsync(string serialNumber);
+        
+     
     }
 }

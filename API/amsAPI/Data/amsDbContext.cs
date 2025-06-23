@@ -31,7 +31,7 @@ namespace Domain.Data
         public DbSet<Asset> Assets { get; set; }
         public DbSet<Feature> Features { get; set; }
         public DbSet<AssetAttribute> AssetAttributes { get; set; }
-        public DbSet<Assignment> Assignments { get; set; }
+        public DbSet<AssignmentMdl> Assignments { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<RequestMdl> Requests { get; set; }
         public DbSet<AuditTrail> AuditTrails { get; set; }
@@ -44,13 +44,13 @@ namespace Domain.Data
         {
             base.OnModelCreating(modelBuilder);
            
-            modelBuilder.Entity<Assignment>()
+            modelBuilder.Entity<AssignmentMdl>()
                 .HasOne(a => a.Admin)
                 .WithMany(e => e.AdminAssignments)
                 .HasForeignKey(a => a.AdminId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Assignment>()
+            modelBuilder.Entity<AssignmentMdl>()
                 .HasOne(a => a.Employee)
                 .WithMany(e => e.EmployeeAssignments)
                 .HasForeignKey(a => a.EmployeeId)

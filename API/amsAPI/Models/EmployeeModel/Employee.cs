@@ -24,8 +24,8 @@ namespace Domain.Models.EmployeeModel
 
         public bool IsAdmin { get; set; }
 
-        public ICollection<Assignment> AdminAssignments { get; set; }
-        public ICollection<Assignment> EmployeeAssignments { get; set; }
+        public ICollection<AssignmentMdl> AdminAssignments { get; set; }
+        public ICollection<AssignmentMdl> EmployeeAssignments { get; set; }
         public ICollection<RequestMdl> Requests { get; set; }
         public ICollection<AuditTrail> AuditTrails { get; set; }
         public ICollection<Maintenance> Maintenances { get; set; }

@@ -1,6 +1,7 @@
 ﻿using amsAPI.Repositories.AssetRepository;
 using Domain.Models.AssetAttributeModel;
 using Domain.Models.AssetModel;
+using Domain.Models.AssignmentModel;
 using Services.DbTransactionManager;
 using Services.Validations;
 
@@ -11,7 +12,7 @@ namespace Services.Assets
 {
     public class AssetService : IAssetService
     {
-        
+
         private readonly IAssetRepo _assetReop;
         private readonly ITransactionService _transaction;
 
@@ -20,10 +21,10 @@ namespace Services.Assets
 
         public AssetService(IAssetRepo assetRepo, ITransactionService transaction)
         {
-          this._assetReop = assetRepo;
+            this._assetReop = assetRepo;
             this._transaction = transaction;
 
-           
+
         }
         public async Task AddAssetAsync(AddAssetRequestDto requestDto)
         {
@@ -38,7 +39,7 @@ namespace Services.Assets
             try
             {
 
-         
+
 
                 var assetId = Guid.NewGuid();
 
@@ -57,7 +58,7 @@ namespace Services.Assets
                         AssetId = assetId,
                         FeatureId = Attr.FeatureId,
                         Value = Attr.Value
-                        
+
 
 
                     }).ToList() ?? new List<AssetAttribute>()
@@ -67,16 +68,23 @@ namespace Services.Assets
                 await _assetReop.AddAsync(asset);
                 await _transaction.CommitAsync();
 
-               
+
 
 
 
             }
-            catch
+            catch (Exception ex)
             {
-                await _transaction.RollbackAsync();
-                throw;
+                {
+                    await _transaction.RollbackAsync();
+                    throw (ex);
+                }
             }
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
         }
     }
 }

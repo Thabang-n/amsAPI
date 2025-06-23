@@ -94,7 +94,7 @@ namespace amsAPI.Migrations
                     b.ToTable("Assets");
                 });
 
-            modelBuilder.Entity("Domain.Models.AssignmentModel.Assignment", b =>
+            modelBuilder.Entity("Domain.Models.AssignmentModel.AssignmentMdl", b =>
                 {
                     b.Property<Guid>("AssignmentId")
                         .ValueGeneratedOnAdd()
@@ -537,7 +537,7 @@ namespace amsAPI.Migrations
                     b.Navigation("Location");
                 });
 
-            modelBuilder.Entity("Domain.Models.AssignmentModel.Assignment", b =>
+            modelBuilder.Entity("Domain.Models.AssignmentModel.AssignmentMdl", b =>
                 {
                     b.HasOne("Domain.Models.EmployeeModel.Employee", "Admin")
                         .WithMany("AdminAssignments")

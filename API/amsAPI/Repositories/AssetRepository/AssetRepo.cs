@@ -19,6 +19,8 @@ namespace amsAPI.Repositories.AssetRepository
             _context = context;  
         }
 
+     
+
         public Task<bool> serialNumberExitsAsync(string serialNumber)
         {
             return _context.Assets.AnyAsync(asset => asset.SerialNumber == serialNumber);

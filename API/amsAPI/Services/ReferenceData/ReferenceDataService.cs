@@ -12,11 +12,11 @@ namespace Services.ReferenceData
     public class ReferenceDataService : IReferenceDataService
     {
         private readonly IGenericRepo<Brand> _brandRepo;
-        private readonly IGenericRepo<LocationDto> _locationRepo;
+        private readonly IGenericRepo<Location> _locationRepo;
         private IGenericRepo<Category> _categoryRepo;
         private readonly amsDbContext _context;
 
-        public ReferenceDataService(IGenericRepo<Brand> brandRepo,IGenericRepo<LocationDto> locationRepo,IGenericRepo<Feature> featureRepo, IGenericRepo<Category> categoryRepo, amsDbContext context)
+        public ReferenceDataService(IGenericRepo<Brand> brandRepo,IGenericRepo<Location> locationRepo,IGenericRepo<Feature> featureRepo, IGenericRepo<Category> categoryRepo, amsDbContext context)
         {
             _brandRepo = brandRepo;
             _locationRepo = locationRepo;
