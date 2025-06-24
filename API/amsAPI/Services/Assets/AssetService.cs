@@ -3,14 +3,13 @@ using amsAPI.Models.AssetModel;
 using amsAPI.Repositories.AssetRepository;
 using Domain.Models.AssetAttributeModel;
 using Domain.Models.AssetModel;
-<<<<<<< Updated upstream
-=======
+
 using Domain.Models.BrandModel;
 using Domain.Models.CategoryModel;
 using Domain.Models.FeatureModel;
 using Domain.Models.LocationModel;
 using Microsoft.AspNetCore.Components.RenderTree;
->>>>>>> Stashed changes
+
 using Services.DbTransactionManager;
 using Services.Validations;
 using System.ComponentModel.DataAnnotations;
@@ -96,6 +95,7 @@ namespace Services.Assets
             {
                 Id = a.AssetId,
                 SerialNumber = a.SerialNumber,
+                Description = a.Description,
                 IsAssigned = a.IsAssigned = false,
                 Category = new CategoryDto
                 {

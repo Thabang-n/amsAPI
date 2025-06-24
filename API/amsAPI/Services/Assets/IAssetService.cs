@@ -11,10 +11,9 @@ namespace Services.Assets
     public interface IAssetService
     {
         Task AddAssetAsync(AddAssetRequestDto requestDto);
-<<<<<<< Updated upstream
-=======
+
          Task<List<AssetResponseDto>> GetAllAssetsAsync(string? search = null, string? category = null, string? country = null, string? city = null, string? status = null);
         Task<AssetResponseDto> GetByIdAsync(Guid assetId);
->>>>>>> Stashed changes
+
     }
 }
