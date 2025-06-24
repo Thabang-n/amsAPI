@@ -78,7 +78,9 @@ namespace Services.ReferenceData
             var locationDtos = locations.Select(location => new LocationDto
             {
                 LocationId = location.LocationId,
-                LocationCity = location.LocationCity
+                LocationCity = location.LocationCity,
+                LocationName = location.LocationName
+
             }).ToList();
 
             return locationDtos;

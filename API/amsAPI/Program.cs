@@ -1,8 +1,10 @@
 using amsAPI.Middleware;
 using amsAPI.Repositories.AssetRepository;
 using amsAPI.Repositories.AssignmentRepository;
+using amsAPI.Repositories.EmployeeRepository;
 using amsAPI.Repositories.GenericRepository;
 using amsAPI.Services.AssignmentServ;
+using amsAPI.Services.EmployeeServ;
 using Domain.Data;
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +32,8 @@ builder.Services.AddScoped(typeof(IGenericRepo<>), typeof(GenericRepo<>));
 builder.Services.AddScoped<IReferenceDataService,ReferenceDataService>();
 builder.Services.AddScoped<IAssignmentRepo, AssignmentRepo>();
 builder.Services.AddScoped<IAssignmentService, AssignmentService>();
+builder.Services.AddScoped<IEmployeeRepo, EmployeeRepo>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 
 
