@@ -14,6 +14,29 @@ namespace amsAPI.Controllers
         {
            this._assetService = assetService; 
         }
+
+        [HttpGet("assets")]
+        public async Task<IActionResult> GetAllAssetsAsync(
+       [FromQuery] string? search,
+       [FromQuery] string? category,
+       [FromQuery] string? country,
+       [FromQuery] string? city,
+       [FromQuery] string? status)
+        {
+            var assets = await _assetService.GetAllAssetsAsync(search, category, country, city, status);
+            return Ok(new { assets });
+        }
+
+        [HttpGet("assets/{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var asset = await _assetService.GetByIdAsync(id);
+
+            if (asset == null)
+                return NotFound();
+
+            return Ok(asset);
+        }
         [HttpPost("assets")]
         public async Task<IActionResult> AddAssetAsync([FromBody] AddAssetRequestDto request)
         {

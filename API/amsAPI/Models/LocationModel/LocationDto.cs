@@ -12,5 +12,6 @@ namespace Domain.Models.LocationModel
         [Key]
         public Guid LocationId { get; set; }
         public string LocationCity { get; set; }
+        public string LocationName { get; set; }
     }
 }

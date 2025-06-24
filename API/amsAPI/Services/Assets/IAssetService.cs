@@ -1,4 +1,5 @@
-﻿using Domain.Models.AssetModel;
+﻿using amsAPI.Models.AssetModel;
+using Domain.Models.AssetModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,10 @@ namespace Services.Assets
     public interface IAssetService
     {
         Task AddAssetAsync(AddAssetRequestDto requestDto);
+<<<<<<< Updated upstream
+=======
+         Task<List<AssetResponseDto>> GetAllAssetsAsync(string? search = null, string? category = null, string? country = null, string? city = null, string? status = null);
+        Task<AssetResponseDto> GetByIdAsync(Guid assetId);
+>>>>>>> Stashed changes
     }
 }
