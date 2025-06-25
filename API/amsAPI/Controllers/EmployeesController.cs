@@ -50,8 +50,8 @@ namespace amsAPI.Controllers
 
             await _employeeService.EnsureEmployeeExistsAsync(employeeId, email, username);
 
-        return Ok("successfully added");
-    }
+            return Ok(new { message = "successfully added" });
+        }
 
 
     [HttpGet]
