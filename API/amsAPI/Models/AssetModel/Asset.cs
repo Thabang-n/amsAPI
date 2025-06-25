@@ -36,7 +36,7 @@ namespace Domain.Models.AssetModel
 
         [MaxLength(100)]
         public string SerialNumber { get; set; }
-
+        public DateTime DateCreated { get; set; } = DateTime.UtcNow;
         public bool IsAssigned { get; set; }
         public string Description { get; set; }
         public bool IsDeleted { get; set; }

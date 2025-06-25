@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Models.AssetModel
 {
-    public class AssetDto
+    public class AssetResponseDto
     {
         [Key]
         public Guid Id { get; set; }

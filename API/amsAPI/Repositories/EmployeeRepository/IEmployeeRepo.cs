@@ -11,3 +11,4 @@ namespace amsAPI.Repositories.EmployeeRepository
         Task<Employee?> EmployeeExistsByActiveAdIdAsync(Guid Id);
     }
 }
+ 
