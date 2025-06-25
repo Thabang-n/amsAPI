@@ -16,7 +16,6 @@ namespace amsAPI.Models.AssetModel
         public CategoryDto Category { get; set; }
         public LocationResponseDto Location { get; set; }
         public BrandDto Brand { get; set; }
-
         public string SerialNumber { get; set; }
         public string Description { get; set; }
         public bool IsAssigned { get; set; }

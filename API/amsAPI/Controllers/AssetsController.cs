@@ -20,7 +20,7 @@ namespace amsAPI.Controllers
                 await _assetService.AddAssetAsync(request);
             return Ok();
 
-        }
+       }
 
         [HttpGet("assets/")]
         public async Task<IActionResult> GetAssets(

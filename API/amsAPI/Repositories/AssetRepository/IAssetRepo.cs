@@ -11,9 +11,7 @@ namespace amsAPI.Repositories.AssetRepository
     public interface IAssetRepo:IGenericRepo<Asset>
     {
         Task<bool> serialNumberExitsAsync(string serialNumber);
-
-
-         Task<List<Asset>> GetAllAsync(string? search = null, string? category = null, string? country = null, string? city = null, string? status = null);
+        Task<List<Asset>> GetAllAsync(string? search = null, string? category = null, string? country = null, string? city = null, string? status = null);
         Task<Asset> GetByIdAsync(Guid assetId);   
      
 

@@ -156,7 +156,7 @@ namespace Services.Assets
                     CategoryId = asset.Category.CategoryId,
                     CategoryName = asset.Category.CategoryName
                 },
-                Location = new LocationResponseDto
+                Location = new LocationResponseDto 
                 {
                     LocationId = asset.Location.LocationId,
                     LocationName = asset.Location.LocationName,
@@ -186,3 +186,4 @@ namespace Services.Assets
         }
     }
 }
+

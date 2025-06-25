@@ -86,7 +86,4 @@ namespace amsAPI.Repositories.AssetRepository
         }
 
     }
-
-
-
 }
