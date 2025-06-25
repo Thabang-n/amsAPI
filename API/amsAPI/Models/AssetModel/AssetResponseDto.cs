@@ -1,7 +1,4 @@
 ﻿using amsAPI.Models.AssetAttributeModel;
-
-using amsAPI.Models.LocationModel;
-
 using Domain.Models.AssetAttributeModel;
 using Domain.Models.BrandModel;
 using Domain.Models.CategoryModel;

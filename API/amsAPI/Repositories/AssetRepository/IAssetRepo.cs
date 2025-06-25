@@ -14,7 +14,7 @@ namespace amsAPI.Repositories.AssetRepository
 
         Task<List<Asset>> GetAllAsync(string? search = null, string? category = null, string? country = null, string? city = null, string? status = null);
         Task<Asset> GetByIdAsync(Guid assetId);   
-    
-
+     
+>>>>>>> Stashed changes
     }
 }
