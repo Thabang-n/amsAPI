@@ -27,7 +27,7 @@ namespace Domain.Models.AssetModel
         [Required]
         public Guid LocationId { get; set; }
         [ForeignKey("LocationId")]
-        public LocationDto Location { get; set; }
+        public Location Location { get; set; }
 
         [Required]
         public Guid BrandId { get; set; }

@@ -14,14 +14,21 @@ namespace amsAPI.Controllers
         {
            this._assetService = assetService; 
         }
+        [HttpPost("assets")]
+        public async Task<IActionResult> AddAssetAsync([FromBody] AddAssetRequestDto request)
+        {
+                await _assetService.AddAssetAsync(request);
+            return Ok();
 
-        [HttpGet("assets")]
-        public async Task<IActionResult> GetAllAssetsAsync(
-       [FromQuery] string? search,
-       [FromQuery] string? category,
-       [FromQuery] string? country,
-       [FromQuery] string? city,
-       [FromQuery] string? status)
+        }
+
+        [HttpGet("assets/")]
+        public async Task<IActionResult> GetAssets(
+        [FromQuery] string? search,
+        [FromQuery] string? category,
+        [FromQuery] string? country,
+        [FromQuery] string? city,
+        [FromQuery] string? status)
         {
             var assets = await _assetService.GetAllAssetsAsync(search, category, country, city, status);
             return Ok(new { assets });
@@ -36,13 +43,6 @@ namespace amsAPI.Controllers
                 return NotFound();
 
             return Ok(asset);
-        }
-        [HttpPost("assets")]
-        public async Task<IActionResult> AddAssetAsync([FromBody] AddAssetRequestDto request)
-        {
-                await _assetService.AddAssetAsync(request);
-            return Ok();
-
         }
     }
 }

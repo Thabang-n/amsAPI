@@ -1,5 +1,4 @@
-﻿using amsAPI.Models.AssetModel;
-using amsAPI.Repositories.GenericRepository;
+﻿using amsAPI.Repositories.GenericRepository;
 using Domain.Data;
 using Domain.Models.AssetModel;
 using Microsoft.EntityFrameworkCore;
@@ -26,11 +25,11 @@ namespace amsAPI.Repositories.AssetRepository
         }
 
         public async Task<List<Asset>> GetAllAsync(
-        string? search = null,
-        string? category = null,
-        string? country = null,
-        string? city = null,
-        string? status = null)
+            string? search = null,
+            string? category = null,
+            string? country = null,
+            string? city = null,
+            string? status = null)
         {
             var query = _context.Assets
                 .Include(a => a.Category)
@@ -38,7 +37,6 @@ namespace amsAPI.Repositories.AssetRepository
                 .Include(a => a.Brand)
                 .Include(a => a.AssetAttributes)
                     .ThenInclude(attr => attr.Feature)
-                    .ThenInclude(f => f.Category)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(search))
@@ -76,13 +74,19 @@ namespace amsAPI.Repositories.AssetRepository
 
         public async Task<Asset> GetByIdAsync(Guid assetId)
         {
-            return await _context.Assets
-                .Include(a => a.Category)
-                .Include(a => a.Location)
-                .Include(a => a.Brand)
-                .Include(a => a.AssetAttributes)
-                    .ThenInclude(attr => attr.Feature).ThenInclude(feature => feature.Category)
-                .FirstOrDefaultAsync(a => a.AssetId == assetId);
+            {
+                return await _context.Assets
+               .Include(a => a.Category)
+               .Include(a => a.Location)
+               .Include(a => a.Brand)
+               .Include(a => a.AssetAttributes)
+                   .ThenInclude(attr => attr.Feature)
+               .FirstOrDefaultAsync(a => a.AssetId == assetId);
+            }
         }
+
     }
+
+
+
 }

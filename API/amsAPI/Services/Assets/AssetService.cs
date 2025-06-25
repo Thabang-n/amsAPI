@@ -3,17 +3,24 @@ using amsAPI.Models.AssetModel;
 using amsAPI.Repositories.AssetRepository;
 using Domain.Models.AssetAttributeModel;
 using Domain.Models.AssetModel;
-<<<<<<< Updated upstream
-=======
+using Domain.Models.BrandModel;
+using Domain.Models.CategoryModel;
+using Domain.Models.FeatureModel;
+using Domain.Models.LocationModel;
+
+
+
 using Domain.Models.BrandModel;
 using Domain.Models.CategoryModel;
 using Domain.Models.FeatureModel;
 using Domain.Models.LocationModel;
 using Microsoft.AspNetCore.Components.RenderTree;
->>>>>>> Stashed changes
+
 using Services.DbTransactionManager;
 using Services.Validations;
+
 using System.ComponentModel.DataAnnotations;
+using amsAPI.Models.LocationModel;
 
 
 namespace Services.Assets
@@ -102,7 +109,7 @@ namespace Services.Assets
                     CategoryId = a.Category.CategoryId,
                     CategoryName = a.Category.CategoryName
                 },
-                Location = new LocationDto
+                Location = new LocationResponseDto
                 {
                     LocationId = a.Location.LocationId,
                     LocationName = a.Location.LocationName,
@@ -149,7 +156,7 @@ namespace Services.Assets
                     CategoryId = asset.Category.CategoryId,
                     CategoryName = asset.Category.CategoryName
                 },
-                Location = new LocationDto
+                Location = new LocationResponseDto
                 {
                     LocationId = asset.Location.LocationId,
                     LocationName = asset.Location.LocationName,
