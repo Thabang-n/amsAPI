@@ -14,20 +14,22 @@ namespace amsAPI.Services.EmployeeServ
 
         public async Task EnsureEmployeeExistsAsync(Guid empId, string username, string email)
         {
+
             var existingEmployee = await _employeeRepo.EmployeeExistsByActiveAdIdAsync(empId);
 
-            if(existingEmployee == null)
+            if (existingEmployee != null)
             {
-                var newEmployee = new Employee
-                {
-                    EmployeeId = empId,
-                    Email = email,
-                    Username = username
-
-                };
-                await _employeeRepo.AddAsync(newEmployee);
-
+                throw new InvalidOperationException("Employee already exists.");
             }
+
+            var newEmployee = new Employee
+            {
+                EmployeeId = empId,
+                Email = email,
+                Username = username
+            };
+
+            await _employeeRepo.AddAsync(newEmployee);
         }
 
         public async Task<List<EmployeeResponseDto>> GetAllEmployeesAsync(string? search)

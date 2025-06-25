@@ -20,8 +20,8 @@ namespace amsAPI.Controllers
            this._employeeService = employeeService; 
         }
 
-    
 
+        [Authorize]
 [HttpGet("validate")]
     public async Task<IActionResult> ValidateTokenAndAddEmployee()
     {
@@ -46,12 +46,11 @@ namespace amsAPI.Controllers
             var empIdString = jwtToken.Claims.FirstOrDefault(c => c.Type == "oid")?.Value;
             Guid employeeId = Guid.Parse(empIdString!);
             var email = jwtToken.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
-            var username = jwtToken.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
+            var username = jwtToken.Claims.FirstOrDefault(c => c.Type == "name")?.Value;
 
             await _employeeService.EnsureEmployeeExistsAsync(employeeId, email, username);
 
-        return Ok("successfully added"
-        );
+        return Ok("successfully added");
     }
 
 
