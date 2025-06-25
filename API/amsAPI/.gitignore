@@ -1,5 +1,5 @@
+.env
 .vs/
 obj/
 bin/
 *.sourcelink.json
-.env
