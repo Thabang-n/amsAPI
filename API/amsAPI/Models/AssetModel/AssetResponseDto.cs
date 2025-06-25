@@ -1,5 +1,7 @@
 ﻿using amsAPI.Models.AssetAttributeModel;
+
 using amsAPI.Models.LocationModel;
+
 using Domain.Models.AssetAttributeModel;
 using Domain.Models.BrandModel;
 using Domain.Models.CategoryModel;
@@ -14,8 +16,10 @@ namespace amsAPI.Models.AssetModel
         public Guid Id { get; set; }
 
         public CategoryDto Category { get; set; }
+
         public LocationResponseDto Location { get; set; }
         public BrandDto Brand { get; set; }
+
         public string SerialNumber { get; set; }
         public string Description { get; set; }
         public bool IsAssigned { get; set; }

@@ -13,5 +13,7 @@ namespace amsAPI.Models.AssetAttributeModel
         [Required]
         [MaxLength(255)]
         public string Value { get; set; }
-    }
+
+}
+
 }

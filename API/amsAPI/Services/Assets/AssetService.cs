@@ -3,12 +3,6 @@ using amsAPI.Models.AssetModel;
 using amsAPI.Repositories.AssetRepository;
 using Domain.Models.AssetAttributeModel;
 using Domain.Models.AssetModel;
-using Domain.Models.BrandModel;
-using Domain.Models.CategoryModel;
-using Domain.Models.FeatureModel;
-using Domain.Models.LocationModel;
-
-
 
 using Domain.Models.BrandModel;
 using Domain.Models.CategoryModel;
@@ -103,6 +97,7 @@ namespace Services.Assets
             {
                 Id = a.AssetId,
                 SerialNumber = a.SerialNumber,
+                Description = a.Description,
                 IsAssigned = a.IsAssigned = false,
                 Category = new CategoryDto
                 {
