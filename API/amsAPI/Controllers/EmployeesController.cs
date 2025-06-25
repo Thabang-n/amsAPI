@@ -45,8 +45,8 @@ namespace amsAPI.Controllers
         }
             var empIdString = jwtToken.Claims.FirstOrDefault(c => c.Type == "oid")?.Value;
             Guid employeeId = Guid.Parse(empIdString!);
-            var email = jwtToken.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
-            var username = jwtToken.Claims.FirstOrDefault(c => c.Type == "name")?.Value;
+            var email = jwtToken.Claims.FirstOrDefault(c => c.Type == "name")?.Value;
+            var username = jwtToken.Claims.FirstOrDefault(c => c.Type == "unique_name")?.Value;
 
             await _employeeService.EnsureEmployeeExistsAsync(employeeId, email, username);
 
