@@ -7,5 +7,7 @@ namespace amsAPI.Repositories.EmployeeRepository
     public interface IEmployeeRepo:IGenericRepo<Employee>
     {
         Task<List<Employee>> GetAllAsync(string? search);
+
+        Task<Employee?> EmployeeExistsByActiveAdIdAsync(Guid Id);
     }
 }

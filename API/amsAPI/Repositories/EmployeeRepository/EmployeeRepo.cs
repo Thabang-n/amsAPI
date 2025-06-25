@@ -14,6 +14,11 @@ namespace amsAPI.Repositories.EmployeeRepository
            this._context = context; 
         }
 
+        public async Task<Employee?> EmployeeExistsByActiveAdIdAsync(Guid Id)
+        {
+            return await _context.Employees.FirstOrDefaultAsync(emp => emp.EmployeeId == Id);
+        }
+
         public Task<List<Employee>> GetAllAsync(string? search)
         {
             IQueryable<Employee> query = _context.Set<Employee>();
