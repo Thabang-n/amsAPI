@@ -1,4 +1,5 @@
-﻿using amsAPI.Repositories.GenericRepository;
+﻿using amsAPI.Models.AssetModel;
+using amsAPI.Repositories.GenericRepository;
 using Domain.Models.AssetModel;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,8 @@ namespace amsAPI.Repositories.AssetRepository
     public interface IAssetRepo:IGenericRepo<Asset>
     {
         Task<bool> serialNumberExitsAsync(string serialNumber);
-        
-     
+        Task<List<Asset>> GetAllAsync(AssetFilterParameters filtersParameters);
+        Task<Asset> GetByIdAsync(Guid assetId);
+
     }
 }

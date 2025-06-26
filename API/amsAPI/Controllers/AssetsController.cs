@@ -1,4 +1,5 @@
-﻿using amsAPI.Models.AssignmentModel;
+﻿using amsAPI.Models.AssetModel;
+using amsAPI.Models.AssignmentModel;
 using amsAPI.Services.AssignmentServ;
 using Domain.Models.AssetModel;
 using Microsoft.AspNetCore.Http;
@@ -18,6 +19,25 @@ namespace amsAPI.Controllers
            this._assetService = assetService;
             this._assignmentService = assignmentService;
         }
+        [HttpGet("assets/")]
+        public async Task<IActionResult> GetAssets(
+        [FromQuery] AssetFilterParameters filtersParameters)
+        {
+            var assets = await _assetService.GetAllAssetsAsync(filtersParameters);
+            return Ok(new { assets });
+        }
+
+        [HttpGet("assets/{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var asset = await _assetService.GetByIdAsync(id);
+
+            if (asset == null)
+                return NotFound();
+
+            return Ok(asset);
+        }
+
         [HttpPost("assets")]
         public async Task<IActionResult> AddAssetAsync([FromBody] AddAssetRequestDto request)
         {
