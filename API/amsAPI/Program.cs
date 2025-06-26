@@ -20,9 +20,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Load environment variables
 Env.Load();
 var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+var authority = Environment.GetEnvironmentVariable("Jwt__Authority");
+var audience = Environment.GetEnvironmentVariable("Jwt__Audience");
 
-if (string.IsNullOrEmpty(connectionString))
-    throw new InvalidOperationException("CONNECTION_STRING is not set in the environment variables.");
+
 
 // Add services
 builder.Services.AddControllers();
@@ -50,14 +51,14 @@ builder.Services.AddScoped<IReferenceDataService, ReferenceDataService>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        options.Authority = "https://login.microsoftonline.com/ceecc926-0c8f-48d1-b01b-b17091c7d7f5/v2.0";
-        options.Audience = "api://16684db4-e91f-44ac-87ab-42b6455b84cb";
+        options.Authority = authority;
+        options.Audience = audience;
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateIssuer = false,  // Disable issuer validation temporarily
+            ValidateIssuer = false,  
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidAudience = "api://16684db4-e91f-44ac-87ab-42b6455b84cb"
+            ValidAudience = audience
         };
     });
 
