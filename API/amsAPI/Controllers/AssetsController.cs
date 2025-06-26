@@ -19,18 +19,17 @@ namespace amsAPI.Controllers
            this._assetService = assetService;
             this._assignmentService = assignmentService;
         }
-        [HttpGet("assets/")]
-        public async Task<IActionResult> GetAssets(
-        [FromQuery] AssetFilterParameters filtersParameters)
+        [HttpGet("assets")]
+        public async Task<IActionResult> GetAllAssets([FromQuery] AssetFilterParameters filtersParameters)
         {
             var assets = await _assetService.GetAllAssetsAsync(filtersParameters);
             return Ok(new { assets });
         }
 
-        [HttpGet("assets/{id}")]
+        [HttpGet("asset/{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var asset = await _assetService.GetByIdAsync(id);
+            var asset = await _assetService.GetAssetByIdAsync(id);
 
             if (asset == null)
                 return NotFound();
@@ -38,7 +37,7 @@ namespace amsAPI.Controllers
             return Ok(asset);
         }
 
-        [HttpPost("assets")]
+        [HttpPost("addAsset")]
         public async Task<IActionResult> AddAssetAsync([FromBody] AddAssetRequestDto request)
         {
                 await _assetService.AddAssetAsync(request);
