@@ -85,11 +85,11 @@ namespace Services.Assets
 
 
         }
-        public async Task<List<AssetResponseDtoV2>> GetAllAssetsAsync(AssetFilterParameters filtersParameters)
+        public async Task<List<AssetResponseDto>> GetAllAssetsAsync(AssetFilterParameters filtersParameters)
         {
             var assets = await _assetReop.GetAllAsync(filtersParameters);
 
-            return assets.Select(a => new AssetResponseDtoV2
+            return assets.Select(a => new AssetResponseDto
             {
                 Id = a.AssetId,
                 SerialNumber = a.SerialNumber,
@@ -129,14 +129,14 @@ namespace Services.Assets
                 }).ToList()
             }).ToList();
         }
-        public async Task<AssetResponseDtoV2> GetByIdAsync(Guid assetId)
+        public async Task<AssetResponseDto> GetByIdAsync(Guid assetId)
         {
             var asset = await _assetReop.GetByIdAsync(assetId);
 
             if (asset == null)
                 throw new Exception("Asset Not Found.");
 
-            return new AssetResponseDtoV2
+            return new AssetResponseDto
             {
                 Id = asset.AssetId,
                 SerialNumber = asset.SerialNumber,

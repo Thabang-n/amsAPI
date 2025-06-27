@@ -35,9 +35,7 @@ namespace amsAPI.Services.AssignmentServ
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ERROR SAVING ASSIGNMENT:");
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.InnerException?.Message); 
+         
                 throw;
             }
         }

@@ -10,5 +10,6 @@ namespace amsAPI.Repositories.GenericRepository
     {
         Task<List<TEntity>> GetAllAsync();
         Task<TEntity> AddAsync(TEntity entity);
+        Task<TEntity?> GetByIdAsync(Guid id);
     }
 }
