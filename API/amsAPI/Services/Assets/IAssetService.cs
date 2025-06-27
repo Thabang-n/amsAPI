@@ -11,8 +11,8 @@ namespace Services.Assets
     public interface IAssetService
     {
         Task AddAssetAsync(AddAssetRequestDto requestDto);
-        Task<List<AssetResponseDtoV2>> GetAllAssetsAsync(AssetFilterParameters filtersParameters);
-        Task<AssetResponseDtoV2> GetByIdAsync(Guid assetId);
+        Task<List<AssetResponseDto>> GetAllAssetsAsync(AssetFilterParameters filtersParameters);
+        Task<AssetResponseDto> GetByIdAsync(Guid assetId);
 
     }
 }
