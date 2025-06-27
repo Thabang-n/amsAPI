@@ -31,7 +31,7 @@ namespace Services.Assets
 
 
         }
-        public async Task AddAssetAsync(AddAssetRequestDto requestDto)
+        public async Task<AssetResponseDto> AddAssetAsync(AddAssetRequestDto requestDto)
         {
             
             var validator = new ValidateAddAssetRequestDto(_assetReop);
@@ -74,6 +74,49 @@ namespace Services.Assets
                 };
                 await _assetReop.AddAsync(asset);
                 await _transaction.CommitAsync();
+
+                var savedAsset = await _assetReop.GetByIdAsync(assetId);
+
+                return new AssetResponseDto
+                {
+                    Id = savedAsset.AssetId,
+                    SerialNumber = savedAsset.SerialNumber,
+                    Description = savedAsset.Description,
+                    DateCreated = savedAsset.DateCreated,
+                    IsAssigned = savedAsset.IsAssigned,
+                    Category = new CategoryDto
+                    {
+                        CategoryId = savedAsset.Category.CategoryId,
+                        CategoryName = savedAsset.Category.CategoryName
+                    },
+                    Location = new LocationDto
+                    {
+                        LocationId = savedAsset.Location.LocationId,
+                        LocationName = savedAsset.Location.LocationName,
+                        LocationCity = savedAsset.Location.LocationCity
+                    },
+                    Brand = new BrandDto
+                    {
+                        BrandId = savedAsset.Brand.BrandId,
+                        BrandName = savedAsset.Brand.BrandName
+                    },
+                    AssetAttributes = savedAsset.AssetAttributes.Select(attr => new AssetAttributeResponseDto
+                    {
+                        AssetAttributeId = attr.AssetAttributeId,
+                        Value = attr.Value,
+                        Feature = new FeatureDto
+                        {
+                            FeatureId = attr.Feature.FeatureId,
+                            FeatureKey = attr.Feature.FeatureKey,
+                            Category = new CategoryDto
+                            {
+                                CategoryId = attr.Feature.Category.CategoryId,
+                                CategoryName = attr.Feature.Category.CategoryName
+                            }
+                        }
+                    }).ToList()
+                };
+
             }
             catch (Exception ex)
             {
@@ -82,8 +125,7 @@ namespace Services.Assets
                     throw (ex);
                 }
             }
-
-
+         
 
         }
         public async Task<List<AssetResponseDto>> GetAllAssetsAsync(AssetFilterParameters filtersParameters)

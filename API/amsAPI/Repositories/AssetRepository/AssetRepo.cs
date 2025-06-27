@@ -96,15 +96,16 @@ namespace amsAPI.Repositories.AssetRepository
 
         public async Task<Asset> GetByIdAsync(Guid assetId)
         {
-            
-                return await _context.Assets
-               .Include(a => a.Category)
-               .Include(a => a.Location)
-               .Include(a => a.Brand)
-               .Include(a => a.AssetAttributes)
-                   .ThenInclude(attr => attr.Feature)
-               .FirstOrDefaultAsync(a => a.AssetId == assetId);
-           
+
+            return await _context.Assets
+    .Include(a => a.Category)
+    .Include(a => a.Location)
+    .Include(a => a.Brand)
+    .Include(a => a.AssetAttributes)
+        .ThenInclude(attr => attr.Feature)
+            .ThenInclude(f => f.Category) 
+                .FirstOrDefaultAsync(a => a.AssetId == assetId);
+
         }
 
     }

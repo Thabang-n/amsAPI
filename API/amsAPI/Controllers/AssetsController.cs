@@ -40,8 +40,8 @@ namespace amsAPI.Controllers
         [HttpPost("addAsset")]
         public async Task<IActionResult> AddAssetAsync([FromBody] AddAssetRequestDto request)
         {
-                await _assetService.AddAssetAsync(request);
-            return Ok();
+               var createdAsset = await _assetService.AddAssetAsync(request);
+            return CreatedAtAction(nameof(GetById), new { id = createdAsset.Id }, createdAsset);
 
         }
         [HttpPost("assignAsset")]
