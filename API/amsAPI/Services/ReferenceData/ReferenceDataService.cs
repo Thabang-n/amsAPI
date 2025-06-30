@@ -22,11 +22,12 @@ namespace Services.ReferenceData
             _locationRepo = locationRepo;
             _categoryRepo = categoryRepo;
             _context = context;
+            Console.WriteLine("ReferenceDataService constructor called, which means a new object was created");
         }
 
         public async Task<List<CategoryDto>> GetCategoryAsync()
         {
-            var categories = await _categoryRepo.GetAllAsync();
+            var categories = await _categoryRepo.GetAll();
 
             var categoryDtos = categories.Select(category => new CategoryDto
             {
@@ -59,7 +60,7 @@ namespace Services.ReferenceData
 
         async Task<List<BrandDto>> IReferenceDataService.GetBrandsAsync()
         {
-            var brands = await _brandRepo.GetAllAsync();
+            var brands = await _brandRepo.GetAll();
 
             var brandDto = brands.Select(brand => new BrandDto
             {
@@ -73,17 +74,20 @@ namespace Services.ReferenceData
 
         async Task<List<LocationDto>> IReferenceDataService.GetLocationsAsync()
         {
-            var locations = await _locationRepo.GetAllAsync();
+            var locations = await _locationRepo.GetAll();
 
-            var locationDtos = locations.Select(location => new LocationDto
+            return locations.Select(location => blabla(location)).ToList();
+        }
+
+        private static LocationDto blabla(Location location)
+        {
+            return new LocationDto
             {
                 LocationId = location.LocationId,
                 LocationCity = location.LocationCity,
                 LocationName = location.LocationName
 
-            }).ToList();
-
-            return locationDtos;
+            };
         }
     }
 }

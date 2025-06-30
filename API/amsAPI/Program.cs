@@ -46,6 +46,7 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped(typeof(IGenericRepo<>), typeof(GenericRepo<>));
 builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddScoped<IReferenceDataService, ReferenceDataService>();
+//builder.Services.AddScoped<LocationReferenceDataService>();
 
 // Authentication & Authorization
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
