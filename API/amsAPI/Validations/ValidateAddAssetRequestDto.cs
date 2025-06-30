@@ -2,7 +2,7 @@
 using Domain.Models.AssetModel;
 
 
-namespace Services.Validations
+namespace amsAPI.Validations
 {
     public class ValidateAddAssetRequestDto
     {
@@ -10,7 +10,7 @@ namespace Services.Validations
         
         public ValidateAddAssetRequestDto(IAssetRepo assetRepo)
         {
-          this._assetRepo = assetRepo;  
+          _assetRepo = assetRepo;  
         }
         public async Task<List<string>> ValidateAsync(AddAssetRequestDto dto)
         {

@@ -1,6 +1,6 @@
 ﻿using Domain.Models.LocationModel;
 
-namespace amsAPI.Services.ReferenceData.mapper
+namespace amsAPI.mapper
 {
     public class LocationResponseMapper
     {

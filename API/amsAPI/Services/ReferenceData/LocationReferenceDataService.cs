@@ -1,5 +1,6 @@
-﻿using amsAPI.Repositories.GenericRepository;
-using amsAPI.Services.ReferenceData.mapper;
+﻿using amsAPI.mapper;
+using amsAPI.Repositories.GenericRepository;
+using amsAPI.Repositories.ReferenceData.LocationRepository;
 using Domain.Data;
 using Domain.Models.BrandModel;
 using Domain.Models.CategoryModel;
@@ -13,16 +14,11 @@ namespace Services.ReferenceData
     public class LocationReferenceDataService
     {
 
-        private readonly IGenericRepo<Location> _locationRepo;
-
-
-        public LocationReferenceDataService(IGenericRepo<Location> locationRepo)
+        private readonly ILocationRepo _locationRepo;
+        public LocationReferenceDataService(ILocationRepo locationRepo)
         {
-
-            _locationRepo = locationRepo;
-
+           this._locationRepo = locationRepo;
         }
-
 
         public async Task<List<LocationDto>> GetLocations()
         {

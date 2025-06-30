@@ -1,6 +1,7 @@
 ﻿using amsAPI.Models.AssetAttributeModel;
 using amsAPI.Models.AssetModel;
 using amsAPI.Repositories.AssetRepository;
+using amsAPI.Validations;
 using Domain.Models.AssetAttributeModel;
 using Domain.Models.AssetModel;
 using Domain.Models.AuditTrailModel;
@@ -9,7 +10,7 @@ using Domain.Models.CategoryModel;
 using Domain.Models.FeatureModel;
 using Domain.Models.LocationModel;
 using Services.DbTransactionManager;
-using Services.Validations;
+
 
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
