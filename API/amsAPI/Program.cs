@@ -4,7 +4,6 @@ using amsAPI.Middleware;
 using amsAPI.Repositories.AssetRepository;
 using amsAPI.Repositories.AssignmentRepository;
 using amsAPI.Repositories.EmployeeRepository;
-using amsAPI.Repositories.GenericRepository;
 using amsAPI.Repositories.ReferenceData.BrandRepository;
 using amsAPI.Repositories.ReferenceData.CategoryRepository;
 using amsAPI.Repositories.ReferenceData.FeatureRepository;
@@ -41,8 +40,8 @@ builder.Services.AddDbContext<amsDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 // Repository & Service Registrations
-builder.Services.AddScoped<IAssetRepo, AssetRepo>();
-builder.Services.AddScoped<IAssetService, AssetService>();
+
+
 
 builder.Services.AddScoped<IAssignmentRepo, AssignmentRepo>();
 builder.Services.AddScoped<IAssignmentService, AssignmentService>();
@@ -50,7 +49,7 @@ builder.Services.AddScoped<IAssignmentService, AssignmentService>();
 builder.Services.AddScoped<IEmployeeRepo, EmployeeRepo>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
-builder.Services.AddScoped(typeof(IGenericRepo<>), typeof(GenericRepo<>));
+
 builder.Services.AddScoped<ITransactionService, TransactionService>();
 
 //Repos
@@ -58,17 +57,22 @@ builder.Services.AddScoped<ILocationRepo, LocationRepo>();
 builder.Services.AddScoped<IBrandRepo, BrandRepo>();
 builder.Services.AddScoped<ICategoryRepo, CategoryRepo>();
 builder.Services.AddScoped<IFeatureRepo, FeatureRepo>();
+builder.Services.AddScoped<IAssetRepo, AssetRepo>();
 
 //services
 builder.Services.AddScoped<BrandReferenceDataService>();
 builder.Services.AddScoped<LocationReferenceDataService>();
 builder.Services.AddScoped<CategoryReferenceDataService>();
 builder.Services.AddScoped<FeatureReferenceDataService>();
+builder.Services.AddScoped<AssetService>();
 //mappers
 builder.Services.AddScoped<LocationResponseMapper>();
 builder.Services.AddScoped<FeatureResponseMapper>();
 builder.Services.AddScoped<BrandResponseMapper>();
 builder.Services.AddScoped<CategoriesResponseMapper>();
+builder.Services.AddScoped<AssetRequestMapper>();
+builder.Services.AddScoped<AssetResponseListMapper>();
+builder.Services.AddScoped<AssetResponseMapper>();
 
 
 // Authentication & Authorization

@@ -1,11 +1,12 @@
 ﻿using amsAPI.Models.AssignmentModel;
-using amsAPI.Repositories.GenericRepository;
+
 
 namespace amsAPI.Repositories.AssignmentRepository
 {
-    public interface IAssignmentRepo : IGenericRepo<AssignmentMdl>
+    public interface IAssignmentRepo
     {
         Task<bool> IsAssetAlreadyAssignedAsync(Guid assetId);
+        Task<AssignmentMdl> Add(AssignmentMdl assignmentMdl);
     }
 }
 

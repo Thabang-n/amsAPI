@@ -1,5 +1,4 @@
 ﻿using amsAPI.mapper;
-using amsAPI.Repositories.GenericRepository;
 using amsAPI.Repositories.ReferenceData.LocationRepository;
 using Domain.Data;
 using Domain.Models.BrandModel;

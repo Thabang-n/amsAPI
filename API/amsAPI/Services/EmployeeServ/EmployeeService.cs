@@ -29,7 +29,7 @@ namespace amsAPI.Services.EmployeeServ
                 Username = username
             };
 
-            await _employeeRepo.AddAsync(newEmployee);
+            await _employeeRepo.Add(newEmployee);
         }
 
         public async Task<List<EmployeeResponseDto>> GetAllEmployeesAsync(string? search)

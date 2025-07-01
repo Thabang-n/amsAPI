@@ -31,7 +31,7 @@ namespace amsAPI.Services.AssignmentServ
                     IsLinked = true
                 };
                
-                await _assignmentRepo.AddAsync(assigment);
+                await _assignmentRepo.Add(assigment);
             }
             catch (Exception ex)
             {

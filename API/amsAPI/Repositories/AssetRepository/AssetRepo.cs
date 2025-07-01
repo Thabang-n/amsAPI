@@ -1,5 +1,4 @@
 ﻿using amsAPI.Models.AssetModel;
-using amsAPI.Repositories.GenericRepository;
 using Domain.Data;
 using Domain.Models.AssetModel;
 using Microsoft.EntityFrameworkCore;
@@ -12,17 +11,13 @@ using System.Threading.Tasks;
 
 namespace amsAPI.Repositories.AssetRepository
 {
-    public class AssetRepo : GenericRepo<Asset>,IAssetRepo
+    public class AssetRepo:IAssetRepo 
     {
         private readonly amsDbContext _context;
-
-        public AssetRepo(amsDbContext context):base(context)
+        public AssetRepo(amsDbContext context)
         {
             _context = context;  
         }
-
-     
-
         public Task<bool> serialNumberExitsAsync(string serialNumber)
         {
             return _context.Assets.AnyAsync(asset => asset.SerialNumber == serialNumber);
@@ -107,5 +102,11 @@ namespace amsAPI.Repositories.AssetRepository
            
         }
 
+        public async Task<Asset> Add(Asset asset)
+        {
+            await _context.AddAsync(asset);
+            _context.SaveChanges();
+            return asset;
+        }
     }
 }
