@@ -1,9 +1,13 @@
+using amsAPI.mapper;
+using amsAPI.Mapper;
 using amsAPI.Middleware;
 using amsAPI.Repositories.AssetRepository;
 using amsAPI.Repositories.AssignmentRepository;
 using amsAPI.Repositories.EmployeeRepository;
 using amsAPI.Repositories.GenericRepository;
 using amsAPI.Repositories.ReferenceData.BrandRepository;
+using amsAPI.Repositories.ReferenceData.CategoryRepository;
+using amsAPI.Repositories.ReferenceData.FeatureRepository;
 using amsAPI.Repositories.ReferenceData.LocationRepository;
 using amsAPI.Services.AssignmentServ;
 using amsAPI.Services.EmployeeServ;
@@ -48,11 +52,24 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
 builder.Services.AddScoped(typeof(IGenericRepo<>), typeof(GenericRepo<>));
 builder.Services.AddScoped<ITransactionService, TransactionService>();
-builder.Services.AddScoped<IReferenceDataService, ReferenceDataService>();
+
+//Repos
 builder.Services.AddScoped<ILocationRepo, LocationRepo>();
-builder.Services.AddScoped<LocationReferenceDataService>();
 builder.Services.AddScoped<IBrandRepo, BrandRepo>();
+builder.Services.AddScoped<ICategoryRepo, CategoryRepo>();
+builder.Services.AddScoped<IFeatureRepo, FeatureRepo>();
+
+//services
 builder.Services.AddScoped<BrandReferenceDataService>();
+builder.Services.AddScoped<LocationReferenceDataService>();
+builder.Services.AddScoped<CategoryReferenceDataService>();
+builder.Services.AddScoped<FeatureReferenceDataService>();
+//mappers
+builder.Services.AddScoped<LocationResponseMapper>();
+builder.Services.AddScoped<FeatureResponseMapper>();
+builder.Services.AddScoped<BrandResponseMapper>();
+builder.Services.AddScoped<CategoriesResponseMapper>();
+
 
 // Authentication & Authorization
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

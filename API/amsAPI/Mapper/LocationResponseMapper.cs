@@ -4,7 +4,7 @@ namespace amsAPI.mapper
 {
     public class LocationResponseMapper
     {
-        public static List<LocationDto> toDTOList(List<Location> locations)
+        public static List<LocationDto> toDtOList(List<Location> locations)
         {
             return locations.Select(location => new LocationDto
             {

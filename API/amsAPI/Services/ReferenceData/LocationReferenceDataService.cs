@@ -22,7 +22,7 @@ namespace Services.ReferenceData
 
         public async Task<List<LocationDto>> GetLocations()
         {
-            return LocationResponseMapper.toDTOList(await _locationRepo.GetAll());
+            return LocationResponseMapper.toDtOList(await _locationRepo.GetAll());
         }
 
     }
