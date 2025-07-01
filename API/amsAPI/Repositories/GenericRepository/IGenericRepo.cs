@@ -8,7 +8,8 @@ namespace amsAPI.Repositories.GenericRepository
 {
     public interface IGenericRepo<TEntity> where TEntity : class
     {
-        Task<List<TEntity>> GetAllAsync();
+        Task<List<TEntity>> GetAll();
         Task<TEntity> AddAsync(TEntity entity);
+        Task<TEntity?> GetByIdAsync(Guid id);
     }
 }

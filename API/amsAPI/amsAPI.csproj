@@ -25,6 +25,8 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Repositories\ReferenceData\FeatureRepository\" />
+    <Folder Include="Repositories\ReferenceData\CategoryRepository\" />
   </ItemGroup>
 
 </Project>

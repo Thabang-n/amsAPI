@@ -3,8 +3,11 @@ using amsAPI.Repositories.AssetRepository;
 using amsAPI.Repositories.AssignmentRepository;
 using amsAPI.Repositories.EmployeeRepository;
 using amsAPI.Repositories.GenericRepository;
+using amsAPI.Repositories.ReferenceData.BrandRepository;
+using amsAPI.Repositories.ReferenceData.LocationRepository;
 using amsAPI.Services.AssignmentServ;
 using amsAPI.Services.EmployeeServ;
+using amsAPI.Services.ReferenceData;
 using Domain.Data;
 using DotNetEnv;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -13,7 +16,7 @@ using Microsoft.IdentityModel.Tokens;
 using Services.Assets;
 using Services.DbTransactionManager;
 using Services.ReferenceData;
-using Services.Validations;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +49,10 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped(typeof(IGenericRepo<>), typeof(GenericRepo<>));
 builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddScoped<IReferenceDataService, ReferenceDataService>();
+builder.Services.AddScoped<ILocationRepo, LocationRepo>();
+builder.Services.AddScoped<LocationReferenceDataService>();
+builder.Services.AddScoped<IBrandRepo, BrandRepo>();
+builder.Services.AddScoped<BrandReferenceDataService>();
 
 // Authentication & Authorization
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

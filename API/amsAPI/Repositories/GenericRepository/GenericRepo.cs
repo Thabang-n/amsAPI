@@ -26,9 +26,14 @@ namespace amsAPI.Repositories.GenericRepository
             return entity;
         }
 
-        public async Task<List<TEntity>> GetAllAsync()
+        public async Task<List<TEntity>> GetAll()
         {
             return await _set.AsNoTracking().ToListAsync();
+        }
+
+        public async Task<TEntity?> GetByIdAsync(Guid id)
+        {
+            return await _set.FindAsync(id);
         }
     }
 }
