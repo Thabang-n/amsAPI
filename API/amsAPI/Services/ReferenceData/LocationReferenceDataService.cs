@@ -1,5 +1,4 @@
 ﻿using amsAPI.mapper;
-using amsAPI.Repositories.GenericRepository;
 using amsAPI.Repositories.ReferenceData.LocationRepository;
 using Domain.Data;
 using Domain.Models.BrandModel;
@@ -22,7 +21,7 @@ namespace Services.ReferenceData
 
         public async Task<List<LocationDto>> GetLocations()
         {
-            return LocationResponseMapper.toDTOList(await _locationRepo.GetAll());
+            return LocationResponseMapper.toDtOList(await _locationRepo.GetAll());
         }
 
     }

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace amsAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1")]
     [ApiController]
     public class BrandsController : ControllerBase
     {
@@ -13,7 +13,8 @@ namespace amsAPI.Controllers
         {
           this._brandReferenceDataService = brandReferenceDataService; 
         }
-        public async Task<IActionResult> GetAllBrands()
+        [HttpGet("brands")]
+        public async Task<IActionResult> GetAll()
         {
             return Ok(await _brandReferenceDataService.GetAllBrands());
         }

@@ -5,7 +5,7 @@ using Services.ReferenceData;
 
 namespace amsAPI.Controllers
 {
-    [Route("api/v1")]
+    [Route("api/v1/")]
     [ApiController]
     public class LocationController : ControllerBase
     {

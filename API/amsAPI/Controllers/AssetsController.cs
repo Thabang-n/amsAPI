@@ -12,38 +12,32 @@ namespace amsAPI.Controllers
     [ApiController]
     public class AssetsController : ControllerBase
     {
-        private readonly IAssetService _assetService;
+        private readonly AssetService _assetService;
         private readonly IAssignmentService _assignmentService;
-        public AssetsController(IAssetService assetService, IAssignmentService assignmentService)
+        public AssetsController(IAssignmentService assignmentService, AssetService assetService)
         {
-           this._assetService = assetService;
+            this._assetService = assetService;
             this._assignmentService = assignmentService;
+            _assetService = assetService;
         }
         [HttpGet("assets/")]
         public async Task<IActionResult> GetAssets(
         [FromQuery] AssetFilterParameters filtersParameters)
         {
-            var assets = await _assetService.GetAllAssetsAsync(filtersParameters);
-            return Ok(new { assets });
+            return Ok(await _assetService.GetAllAssetsAsync(filtersParameters));
         }
 
         [HttpGet("assets/{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var asset = await _assetService.GetByIdAsync(id);
-
-            if (asset == null)
-                return NotFound();
-
-            return Ok(asset);
+            return Ok(await _assetService.GetByIdAsync(id));
         }
 
         [HttpPost("assets")]
         public async Task<IActionResult> AddAssetAsync([FromBody] AddAssetRequestDto request)
         {
-                await _assetService.AddAssetAsync(request);
-            return Ok();
-
+            await _assetService.AddAssetAsync(request);
+            return Created();
         }
         [HttpPost("assignAsset")]
         public async Task<IActionResult> AssignAsseAsync(AssignAssetRequestDto request)

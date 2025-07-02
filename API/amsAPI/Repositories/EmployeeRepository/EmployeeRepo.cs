@@ -1,17 +1,24 @@
 ﻿using amsAPI.Models.EmployeeModel;
-using amsAPI.Repositories.GenericRepository;
+
 using Domain.Data;
 using Domain.Models.EmployeeModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace amsAPI.Repositories.EmployeeRepository
 {
-    public class EmployeeRepo: GenericRepo<Employee>,IEmployeeRepo
+    public class EmployeeRepo:IEmployeeRepo
     {
         private readonly amsDbContext _context;
-        public EmployeeRepo(amsDbContext context):base(context)
+        public EmployeeRepo(amsDbContext context)
         {
            this._context = context; 
+        }
+
+        public async Task<Employee> Add(Employee employee)
+        {
+            await _context.Employees.AddAsync(employee);
+            await _context.SaveChangesAsync();
+            return employee;
         }
 
         public async Task<Employee?> EmployeeExistsByActiveAdIdAsync(Guid Id)
