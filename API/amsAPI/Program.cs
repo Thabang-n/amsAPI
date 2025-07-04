@@ -1,10 +1,16 @@
+using amsAPI.mapper;
+using amsAPI.Mapper;
 using amsAPI.Middleware;
 using amsAPI.Repositories.AssetRepository;
 using amsAPI.Repositories.AssignmentRepository;
 using amsAPI.Repositories.EmployeeRepository;
-using amsAPI.Repositories.GenericRepository;
+using amsAPI.Repositories.ReferenceData.BrandRepository;
+using amsAPI.Repositories.ReferenceData.CategoryRepository;
+using amsAPI.Repositories.ReferenceData.FeatureRepository;
+using amsAPI.Repositories.ReferenceData.LocationRepository;
 using amsAPI.Services.AssignmentServ;
 using amsAPI.Services.EmployeeServ;
+using amsAPI.Services.ReferenceData;
 using Domain.Data;
 using DotNetEnv;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -13,7 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using Services.Assets;
 using Services.DbTransactionManager;
 using Services.ReferenceData;
-using Services.Validations;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,8 +40,8 @@ builder.Services.AddDbContext<amsDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 // Repository & Service Registrations
-builder.Services.AddScoped<IAssetRepo, AssetRepo>();
-builder.Services.AddScoped<IAssetService, AssetService>();
+
+
 
 builder.Services.AddScoped<IAssignmentRepo, AssignmentRepo>();
 builder.Services.AddScoped<IAssignmentService, AssignmentService>();
@@ -43,9 +49,31 @@ builder.Services.AddScoped<IAssignmentService, AssignmentService>();
 builder.Services.AddScoped<IEmployeeRepo, EmployeeRepo>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
-builder.Services.AddScoped(typeof(IGenericRepo<>), typeof(GenericRepo<>));
+
 builder.Services.AddScoped<ITransactionService, TransactionService>();
-builder.Services.AddScoped<IReferenceDataService, ReferenceDataService>();
+
+//Repos
+builder.Services.AddScoped<ILocationRepo, LocationRepo>();
+builder.Services.AddScoped<IBrandRepo, BrandRepo>();
+builder.Services.AddScoped<ICategoryRepo, CategoryRepo>();
+builder.Services.AddScoped<IFeatureRepo, FeatureRepo>();
+builder.Services.AddScoped<IAssetRepo, AssetRepo>();
+
+//services
+builder.Services.AddScoped<BrandReferenceDataService>();
+builder.Services.AddScoped<LocationReferenceDataService>();
+builder.Services.AddScoped<CategoryReferenceDataService>();
+builder.Services.AddScoped<FeatureReferenceDataService>();
+builder.Services.AddScoped<AssetService>();
+//mappers
+builder.Services.AddScoped<LocationResponseMapper>();
+builder.Services.AddScoped<FeatureResponseMapper>();
+builder.Services.AddScoped<BrandResponseMapper>();
+builder.Services.AddScoped<CategoriesResponseMapper>();
+builder.Services.AddScoped<AssetRequestMapper>();
+builder.Services.AddScoped<AssetResponseListMapper>();
+builder.Services.AddScoped<AssetResponseMapper>();
+
 
 // Authentication & Authorization
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

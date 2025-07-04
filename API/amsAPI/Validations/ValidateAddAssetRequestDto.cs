@@ -2,15 +2,15 @@
 using Domain.Models.AssetModel;
 
 
-namespace Services.Validations
+namespace amsAPI.Validations
 {
     public class ValidateAddAssetRequestDto
     {
         private readonly IAssetRepo _assetRepo;
-        
+
         public ValidateAddAssetRequestDto(IAssetRepo assetRepo)
         {
-          this._assetRepo = assetRepo;  
+            _assetRepo = assetRepo;
         }
         public async Task<List<string>> ValidateAsync(AddAssetRequestDto dto)
         {
@@ -51,15 +51,14 @@ namespace Services.Validations
                     if (attr.FeatureId == Guid.Empty)
                         errors.Add("Each AssetAttribute must have a valid FeatureId.");
 
-                    //if (string.IsNullOrWhiteSpace(attr.Value))
-                    //    errors.Add("Each AssetAttribute must have a non-empty Value.");
+                    
                 }
             }
 
             return errors;
         }
 
-
+    
     }
     
 }

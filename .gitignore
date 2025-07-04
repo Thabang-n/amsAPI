@@ -2,3 +2,5 @@
 obj/
 bin/
 *.sourcelink.json
+/API/amsAPI/Repositories/ReferenceData/FeatureRepository/FeatureRepo.cs
+/API/amsAPI/Repositories/ReferenceData/FeatureRepository/IFeatureRepo.cs

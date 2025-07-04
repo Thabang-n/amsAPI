@@ -31,13 +31,11 @@ namespace amsAPI.Services.AssignmentServ
                     IsLinked = true
                 };
                
-                await _assignmentRepo.AddAsync(assigment);
+                await _assignmentRepo.Add(assigment);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ERROR SAVING ASSIGNMENT:");
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.InnerException?.Message); 
+         
                 throw;
             }
         }
