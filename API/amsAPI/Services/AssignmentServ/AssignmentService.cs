@@ -1,16 +1,17 @@
-﻿using amsAPI.Models.AssignmentModel;
+﻿using amsAPI.Mapper;
+using amsAPI.Models.AssignmentModel;
 using amsAPI.Repositories.AssignmentRepository;
 using Domain.Models.AssetModel;
 
 namespace amsAPI.Services.AssignmentServ
 {
-    public class AssignmentService : IAssignmentService
+    public class AssignmentService 
     {
         private readonly IAssignmentRepo _assignmentRepo;
 
         public AssignmentService(IAssignmentRepo assignmentRep)
         {
-            this._assignmentRepo = assignmentRep; 
+            _assignmentRepo = assignmentRep; 
         }
         public async Task AssignAssetAsync(AssignAssetRequestDto request)
         {
@@ -22,21 +23,12 @@ namespace amsAPI.Services.AssignmentServ
            
             try
             {
-                var assigment = new AssignmentMdl
-                {
-                    AssetId = request.AssetId,
-                    AdminId = request.AdminId,
-                    EmployeeId = request.EmployeeId,
-                    AssignedDate = DateTime.Now,
-                    IsLinked = true
-                };
-               
+                var assigment = AssignmentMapper.MapAssignment(request);
                 await _assignmentRepo.AddAsync(assigment);
             }
             catch (Exception ex)
             {
-         
-                throw;
+                throw ex;
             }
         }
     }

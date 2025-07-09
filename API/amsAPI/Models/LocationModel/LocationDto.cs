@@ -11,8 +11,12 @@ namespace Domain.Models.LocationModel
     {
         [Key]
         public Guid LocationId { get; set; }
+
+        [MaxLength(255)]
         public string LocationCity { get; set; }
 
+
+        [MaxLength(255)]
         public string LocationName { get; set; }
     }
 }

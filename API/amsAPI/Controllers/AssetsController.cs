@@ -12,12 +12,12 @@ namespace amsAPI.Controllers
     [ApiController]
     public class AssetsController : ControllerBase
     {
-        private readonly IAssetService _assetService;
-        private readonly IAssignmentService _assignmentService;
-        public AssetsController(IAssetService assetService, IAssignmentService assignmentService)
+        private readonly AssetService _assetService;
+        private readonly AssignmentService _assignmentService;
+        public AssetsController(AssetService assetService, AssignmentService assignmentService)
         {
-           this._assetService = assetService;
-            this._assignmentService = assignmentService;
+           _assetService = assetService;
+           _assignmentService = assignmentService;
         }
         [HttpGet("assets/")]
         public async Task<IActionResult> GetAssets(
@@ -30,7 +30,7 @@ namespace amsAPI.Controllers
         [HttpGet("assets/{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var asset = await _assetService.GetByIdAsync(id);
+            var asset = await _assetService.GetAssetByIdAsync(id);
 
             if (asset == null)
                 return NotFound();

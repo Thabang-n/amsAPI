@@ -1,0 +1,30 @@
+﻿using Domain.Models.LocationModel;
+
+namespace amsAPI.mapper
+{
+    public class LocationResponseMapper
+    {
+        public static List<LocationDto> toDTOList(List<Location> locations)
+        {
+            return locations.Select(location => new LocationDto
+            {
+                LocationId = location.LocationId,
+                LocationCity = location.LocationCity,
+                LocationName = location.LocationName,
+            }).ToList();
+
+        }
+
+        public static LocationDto toDTO(Location location)
+        {
+            return new LocationDto
+            {
+                LocationId = location.LocationId,
+                LocationCity = location.LocationCity,
+                LocationName = location.LocationName,
+            };
+
+
+        }
+    }
+}

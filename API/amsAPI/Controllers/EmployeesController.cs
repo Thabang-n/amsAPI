@@ -14,15 +14,15 @@ namespace amsAPI.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private readonly IEmployeeService _employeeService;
-        public EmployeesController(IEmployeeService employeeService)
+        private readonly EmployeeService _employeeService;
+        public EmployeesController(EmployeeService employeeService)
         {
            this._employeeService = employeeService; 
         }
 
 
         [Authorize]
-[HttpGet("validate")]
+        [HttpGet("validate")]
     public async Task<IActionResult> ValidateTokenAndAddEmployee()
     {
         var authHeader = Request.Headers["Authorization"].FirstOrDefault();

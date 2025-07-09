@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
+using amsAPI.Helpers;
+using amsAPI.Services.ReferenceDataServices;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Services.ReferenceData;
+
 
 namespace amsAPI.Controllers
 {
@@ -8,39 +11,54 @@ namespace amsAPI.Controllers
     [ApiController]
     public class ReferenceDataController : ControllerBase
     {
-        private readonly IReferenceDataService _referenceDataService;
-        public ReferenceDataController(IReferenceDataService referenceDataService)
+        private readonly LocationService _locationService;
+        private readonly CategoryService _categoryService;
+        private readonly BrandService _brandService;
+        private readonly FeatureService _featureService;
+
+
+        public ReferenceDataController( LocationService locationService, CategoryService categoryService, BrandService brandService,FeatureService featureService)
         {
-           this._referenceDataService = referenceDataService; 
+            _locationService = locationService;
+            _categoryService = categoryService;
+            _brandService = brandService;
+            _featureService = featureService;
+            
         }
 
         [HttpGet("locations")]
-        public async Task<IActionResult> GetAllLocationAsync()
+        public async Task<IActionResult> GetAllLocations()
         {
-               var locations =  await _referenceDataService.GetLocationsAsync();
-            return Ok(locations);
+            return Ok(await _locationService.GetLocations()); 
+        }
+
+        [HttpGet("categories")]
+        public async Task<IActionResult> GetAllCategoriesAsync()
+        {
+         var categories = (await _categoryService.GetAllCategories());
+
+            var successResponse = new ApiResponse.Builder()
+                .setSuccess(true)
+                .setMessage("Category retrieved successfully")
+                .setdata(categories).setStatusCode(200)
+                .build();
+
+            return Ok(successResponse);
+            
         }
 
         [HttpGet("brands")]
         public async Task<IActionResult> GetAllBrandsAsync()
         {
-                var brands = await _referenceDataService.GetBrandsAsync();
-            return Ok(brands);
+            return Ok(await _brandService.GetAllBrands());
         }
 
         [HttpGet("features/{id}")]
         public async Task<IActionResult> GetAllFeaturesAsync([FromRoute] Guid id)
         {
-            var features = await _referenceDataService.GetFeaturesAsync(id);
-            return Ok(features);
+            return Ok(await _featureService.GetAllFeatures(id));
         }
 
 
-        [HttpGet("categories")]
-        public async Task<IActionResult> GetAllCategoriesAsync()
-        {
-            var categories = await _referenceDataService.GetCategoryAsync();
-            return Ok(categories);
-        }
     }
 }
