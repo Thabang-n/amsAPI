@@ -2,12 +2,14 @@ using amsAPI.Middleware;
 using amsAPI.Repositories.AssetRepository;
 using amsAPI.Repositories.AssignmentRepository;
 using amsAPI.Repositories.EmployeeRepository;
+using amsAPI.Repositories.MaintenanceRepository;
 using amsAPI.Repositories.ReferenceDataRepository.BrandRepository;
 using amsAPI.Repositories.ReferenceDataRepository.CategoryRepository;
 using amsAPI.Repositories.ReferenceDataRepository.FeatureRepository;
 using amsAPI.Repositories.ReferenceDataRepository.LocationRepository;
 using amsAPI.Services.AssignmentServ;
 using amsAPI.Services.EmployeeServ;
+using amsAPI.Services.Maintenance;
 using amsAPI.Services.ReferenceDataServices;
 using Domain.Data;
 using DotNetEnv;
@@ -48,6 +50,8 @@ builder.Services.AddScoped<AssignmentService>();
 builder.Services.AddScoped<IEmployeeRepo, EmployeeRepo>();
 builder.Services.AddScoped< EmployeeService>();
 
+builder.Services.AddScoped<IMaintenanceRepo, MaintenanceRepo>();
+builder.Services.AddScoped<MaintenanceService>();
 
 builder.Services.AddScoped<ITransactionService, TransactionService>();
 
@@ -60,6 +64,7 @@ builder.Services.AddScoped<LocationService>();
 builder.Services.AddScoped<BrandService>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<FeatureService>();
+
 
 
 

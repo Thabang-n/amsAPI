@@ -3,3 +3,6 @@
 obj/
 bin/
 *.sourcelink.json
+amaDB_V6.sqlite
+amaDB_V6.sqlite-shm
+amaDB_V6.sqlite-wal

@@ -1,5 +1,6 @@
 ﻿using Domain.Models.AssetModel;
 using Domain.Models.EmployeeModel;
+using Domain.Models.LocationModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -29,6 +30,10 @@ namespace Domain.Models.MaintenanceModel
 
         [MaxLength(50)]
         public string Status { get; set; }
+
+        public Guid LocationId { get; set; }
+        [ForeignKey("LocationId")]
+        public Location Location {get; set;}
 
         public DateTime MaintenanceDate { get; set; }
     }

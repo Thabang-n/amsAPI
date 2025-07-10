@@ -383,6 +383,9 @@ namespace amsAPI.Migrations
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("TEXT");
 
+                    b.Property<Guid>("LocationId")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("MaintenanceDate")
                         .HasColumnType("TEXT");
 
@@ -396,6 +399,8 @@ namespace amsAPI.Migrations
                     b.HasIndex("AssetId");
 
                     b.HasIndex("EmployeeId");
+
+                    b.HasIndex("LocationId");
 
                     b.ToTable("Maintenances");
                 });
@@ -547,9 +552,17 @@ namespace amsAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Models.LocationModel.Location", "Location")
+                        .WithMany()
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Asset");
 
                     b.Navigation("Employee");
+
+                    b.Navigation("Location");
                 });
 
             modelBuilder.Entity("Domain.Models.RequestModel.RequestMdl", b =>

@@ -37,10 +37,11 @@ namespace amsAPI.Controllers
         {
          var categories = (await _categoryService.GetAllCategories());
 
-            var successResponse = new ApiResponse.Builder()
+            var successResponse = new ApiResponseBuilder.responseBuilder()
                 .setSuccess(true)
                 .setMessage("Category retrieved successfully")
-                .setdata(categories).setStatusCode(200)
+                .setdata(categories)
+                .setStatusCode(200)
                 .build();
 
             return Ok(successResponse);

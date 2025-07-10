@@ -1,6 +1,6 @@
 ﻿namespace amsAPI.Helpers
 {
-    public class ApiResponse
+    public class ApiResponseBuilder
     {
         public bool Success { get; set; }
         public string Message { get; set; }
@@ -10,34 +10,34 @@
 
 
 
-        private ApiResponse() { }
+        private ApiResponseBuilder() { }
 
-        public class Builder
+        public class responseBuilder
         {
-            private readonly ApiResponse _response = new ApiResponse();
+            private readonly ApiResponseBuilder _response = new ApiResponseBuilder();
 
-            public Builder setSuccess(bool success)
+            public responseBuilder setSuccess(bool success)
             { 
                _response.Success = success;
                 return this;
             }
-            public Builder setMessage(string message)
+            public responseBuilder setMessage(string message)
             {
                 _response.Message = message;
                 return this;
             }
-            public Builder setdata(object data)
+            public responseBuilder setdata(object data)
             { 
                 _response.Data = data;
                 return this;
             }
-            public Builder setStatusCode(int statusCode)
+            public responseBuilder setStatusCode(int statusCode)
             {
                 _response.StatusCode = statusCode;
                 return this;
             }
 
-            public ApiResponse build()
+            public ApiResponseBuilder build()
             {
                 return _response;
             }
